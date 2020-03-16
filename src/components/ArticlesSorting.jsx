@@ -36,6 +36,17 @@ const ArticlesSorting = props => {
       >
         Most Liked
       </button>
+      <button
+        onClick={event => {
+          console.log(event);
+          props.fetchAllArticles({
+            sort_by: 'comment_count',
+            order: 'desc'
+          });
+        }}
+      >
+        Most Commented
+      </button>
     </div>
   );
 };
