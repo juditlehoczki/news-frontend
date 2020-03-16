@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { fetchArticles } from '../api';
+import ArticlePreview from './ArticlePreview';
 
 class ArticlesAll extends Component {
   state = {
@@ -21,7 +22,19 @@ class ArticlesAll extends Component {
   render() {
     const { articles, isLoading } = this.state;
     return (
-      <>{isLoading ? <p>Loading...</p> : <div>{articles[0].title}</div>}</>
+      <>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            {articles.map(article => {
+              return (
+                <ArticlePreview key={article.article_id} article={article} />
+              );
+            })}
+          </div>
+        )}
+      </>
     );
   }
 }
