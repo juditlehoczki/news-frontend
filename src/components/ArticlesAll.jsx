@@ -12,9 +12,13 @@ class ArticlesAll extends Component {
   };
 
   fetchAllArticles = queries => {
-    fetchArticles(queries).then(({ data }) => {
-      this.setState({ articles: data.articles, isLoading: false });
-    });
+    console.log('fetching articles...');
+    fetchArticles(queries)
+      .then(({ data }) => {
+        console.log('getting stuff bakc?', data);
+        this.setState({ articles: data.articles, isLoading: false });
+      })
+      .catch(console.dir);
   };
 
   componentDidMount() {

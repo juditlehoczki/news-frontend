@@ -2,6 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 
 import ArticlesAll from './components/ArticlesAll';
+import Article from './components/Article';
 
 import S from './components/StyleComponents';
 
@@ -11,6 +12,7 @@ function App() {
       <S.Header>Press JL</S.Header>
       <Router>
         <ArticlesAll path="/" />
+        <Article path="/articles/:article_id" />
       </Router>
     </S.AppContainer>
   );
