@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from '@reach/router';
 
 import { fetchArticles } from '../api';
 import ArticlePreview from './ArticlePreview';
+import ArticlesSorting from './ArticlesSorting';
 
 class ArticlesAll extends Component {
   state = {
@@ -9,14 +11,14 @@ class ArticlesAll extends Component {
     isLoading: true
   };
 
-  fetchAllArticles = () => {
-    fetchArticles().then(({ data }) => {
+  fetchAllArticles = queries => {
+    fetchArticles(queries).then(({ data }) => {
       this.setState({ articles: data.articles, isLoading: false });
     });
   };
 
   componentDidMount() {
-    this.fetchAllArticles();
+    this.fetchAllArticles({});
   }
 
   render() {
@@ -27,6 +29,10 @@ class ArticlesAll extends Component {
           <p>Loading...</p>
         ) : (
           <div>
+            <ArticlesSorting fetchAllArticles={this.fetchAllArticles} />
+            {
+              // list of all topics
+            }
             {articles.map(article => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />

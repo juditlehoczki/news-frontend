@@ -15,4 +15,14 @@ S.Header = styled.h1`
   font-size: 1.5em;
 `;
 
+S.ArticlePreview = styled.div`
+  border: 1px solid black;
+  margin: 5px auto;
+  padding: 5px;
+`;
+
+S.ArticlePreviewTitle = styled.h1`
+  font-size: 1.5em;
+`;
+
 export default S;

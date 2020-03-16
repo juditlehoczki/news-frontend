@@ -1,5 +1,7 @@
 import React from 'react';
 
+import S from './StyleComponents';
+
 const ArticlePreview = props => {
   const {
     article_id,
@@ -12,8 +14,8 @@ const ArticlePreview = props => {
   } = props.article;
 
   return (
-    <div>
-      <h1>{title}</h1>
+    <S.ArticlePreview>
+      <S.ArticlePreviewTitle>{title}</S.ArticlePreviewTitle>
       <div>
         <p>Topic: {topic}</p>
         <span>
@@ -23,7 +25,7 @@ const ArticlePreview = props => {
           Comments: {comment_count}
         </span>
       </div>
-    </div>
+    </S.ArticlePreview>
   );
 };
 
