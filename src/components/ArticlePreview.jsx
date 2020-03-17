@@ -4,7 +4,7 @@ import S from "./StyleComponents";
 
 const ArticlePreview = props => {
   const {
-    // article_id,
+    article_id,
     title,
     votes,
     topic,
@@ -15,7 +15,9 @@ const ArticlePreview = props => {
 
   return (
     <S.ArticlePreview>
-      <S.ArticlePreviewTitle>{title}</S.ArticlePreviewTitle>
+      <S.ArticlePreviewTitle to={`/articles/${article_id}`}>
+        {title}
+      </S.ArticlePreviewTitle>
       <div>
         <p>Topic: {topic}</p>
         <span>

@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "@reach/router";
 
 const S = {};
 
@@ -9,7 +10,7 @@ S.AppContainer = styled.div`
   flex-direction: column;
 `;
 
-S.Header = styled.h1`
+S.Header = styled(Link)`
   border: 1px solid black;
   margin: 0px;
   font-size: 1.5em;
@@ -21,7 +22,7 @@ S.ArticlePreview = styled.div`
   padding: 5px;
 `;
 
-S.ArticlePreviewTitle = styled.h1`
+S.ArticlePreviewTitle = styled(Link)`
   font-size: 1.5em;
 `;
 
