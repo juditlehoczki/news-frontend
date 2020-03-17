@@ -4,11 +4,13 @@ import { fetchArticles } from "../api";
 import ArticlePreview from "./ArticlePreview";
 import ArticlesSorting from "./ArticlesSorting";
 import Topics from "./Topics";
+import ErrorMsg from "./ErrorMsg";
 
 class ArticlesAll extends Component {
   state = {
     articles: [],
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   getArticles = queries => {
@@ -16,12 +18,14 @@ class ArticlesAll extends Component {
       .then(({ data }) => {
         this.setState({ articles: data.articles, isLoading: false });
       })
-      .catch(console.dir);
+      .catch(error => {
+        this.setState({ error: error.response, isLoading: false });
+      });
   };
 
   componentDidMount() {
-    const { topic } = this.props;
-    this.getArticles({ topic });
+    const { topic, author } = this.props;
+    this.getArticles({ topic, author });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -32,25 +36,26 @@ class ArticlesAll extends Component {
   }
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, error } = this.state;
     return (
       <>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <div>
-            <ArticlesSorting
-              topic={this.props.topic}
-              getArticles={this.getArticles}
-            />
-            <Topics />
+        {isLoading && <p>Loading...</p>}
+        <div>
+          <ArticlesSorting
+            topic={this.props.topic}
+            author={this.props.author}
+            getArticles={this.getArticles}
+          />
+          <Topics />
+          {error && <ErrorMsg status={error.status} msg={error.data.msg} />}
+          <>
             {articles.map(article => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />
               );
             })}
-          </div>
-        )}
+          </>
+        </div>
       </>
     );
   }

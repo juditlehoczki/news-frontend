@@ -19,15 +19,15 @@ const ArticlePreview = props => {
       <S.ArticlePreviewTitle to={`/articles/${article_id}`}>
         {title}
       </S.ArticlePreviewTitle>
-      <div>
-        in <Link to={`/articles/topics/${topic}`}>{topic}</Link>
-        <span>
-          Likes: {votes}
-          Written by: {author}
-          Date: {created_at}
-          Comments: {comment_count}
-        </span>
-      </div>
+      <Link to={`/articles/topics/${topic}`}>
+        <p>{topic}</p>
+      </Link>
+      <span>
+        Up {votes}Down
+        <Link to={`/articles/authors/${author}`}>Written by: {author}</Link>
+        Date: {created_at}
+        Comments: {comment_count}
+      </span>
     </S.ArticlePreview>
   );
 };

@@ -40,8 +40,8 @@ class Article extends Component {
         <Link to={`/articles/topics/${topic}`}>{topic}</Link>{" "}
         <p>Article: {body}</p>
         <span>
-          Likes: {votes}
-          Written by: {author}
+          Up {votes} Down
+          <Link to={`/articles/authors/${author}`}>Written by: {author}</Link>
           Date: {created_at}
           Comments: {comment_count}
         </span>

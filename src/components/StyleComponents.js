@@ -23,6 +23,7 @@ S.ArticlePreview = styled.div`
 `;
 
 S.ArticlePreviewTitle = styled(Link)`
+  text-decoration: none;
   font-size: 1.5em;
 `;
 
