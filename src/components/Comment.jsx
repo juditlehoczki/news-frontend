@@ -3,7 +3,15 @@ import React from "react";
 import S from "./StyleComponents";
 
 const Comment = props => {
-  return <S.CommentTile>{props.comment.body}</S.CommentTile>;
+  const { comment } = props;
+  return (
+    <S.CommentTile>
+      {comment.body}
+      {comment.votes}
+      {comment.created_at}
+      {comment.author}
+    </S.CommentTile>
+  );
 };
 
 export default Comment;

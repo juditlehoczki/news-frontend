@@ -10,10 +10,8 @@ class CommentsByArticle extends Component {
   };
 
   fetchComments = props => {
-    console.log("CommentsByArticle>>>>>", this.props.article_id);
     fetchCommentsByArticleId(this.props.article_id)
       .then(({ data }) => {
-        console.log(data.comments);
         this.setState({ comments: data.comments, isLoading: false });
       })
       .catch(console.dir);
