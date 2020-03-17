@@ -4,14 +4,16 @@ import { Link } from "@reach/router";
 import { fetchArticles } from "../api";
 import ArticlePreview from "./ArticlePreview";
 import ArticlesSorting from "./ArticlesSorting";
+import Topics from "./Topics";
 
 class ArticlesAll extends Component {
   state = {
     articles: [],
+    topics: ["coding"],
     isLoading: true
   };
 
-  fetchAllArticles = queries => {
+  getArticles = queries => {
     fetchArticles(queries)
       .then(({ data }) => {
         this.setState({ articles: data.articles, isLoading: false });
@@ -20,7 +22,8 @@ class ArticlesAll extends Component {
   };
 
   componentDidMount() {
-    this.fetchAllArticles({ topic: this.props.topic });
+    const { topic } = this.props;
+    this.getArticles({ topic });
   }
 
   render() {
@@ -33,9 +36,9 @@ class ArticlesAll extends Component {
           <div>
             <ArticlesSorting
               topic={this.props.topic}
-              fetchAllArticles={this.fetchAllArticles}
+              getArticles={this.getArticles}
             />
-            <Link to="/articles/topics/coding">Topic: coding</Link>
+            <Topics />
             {articles.map(article => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />

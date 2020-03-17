@@ -1,21 +1,28 @@
 import axios from "axios";
 
-const articlesURL = "https://press-jl.herokuapp.com/api/articles/";
+const baseUrl = "https://press-jl.herokuapp.com/api";
 
 const fetchArticles = queries => {
-  return axios.get(`${articlesURL}`, {
+  return axios.get(`${baseUrl}/articles/`, {
     params: queries
   });
 };
 
 const fetchArticleById = article_id => {
-  return axios.get(`${articlesURL}${article_id}`);
+  return axios.get(`${baseUrl}/articles/${article_id}`);
 };
 
 const fetchCommentsByArticleId = article_id => {
-  return axios.get(
-    `https://press-jl.herokuapp.com/api/articles/${article_id}/comments`
-  );
+  return axios.get(`${baseUrl}/articles/${article_id}/comments`);
 };
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId };
+const fetchTopics = () => {
+  return axios.get(`${baseUrl}/topics`);
+};
+
+export {
+  fetchArticles,
+  fetchArticleById,
+  fetchCommentsByArticleId,
+  fetchTopics
+};

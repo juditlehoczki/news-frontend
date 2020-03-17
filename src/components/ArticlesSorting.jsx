@@ -1,11 +1,11 @@
 import React from "react";
 
-const ArticlesSorting = ({ fetchAllArticles, topic }) => {
+const ArticlesSorting = ({ getArticles, topic }) => {
   return (
     <div>
       <button
         onClick={event => {
-          fetchAllArticles({
+          getArticles({
             sort_by: "created_at",
             order: "desc",
             topic: topic
@@ -16,7 +16,7 @@ const ArticlesSorting = ({ fetchAllArticles, topic }) => {
       </button>
       <button
         onClick={event => {
-          fetchAllArticles({
+          getArticles({
             sort_by: "created_at",
             order: "asc",
             topic: topic
@@ -27,7 +27,7 @@ const ArticlesSorting = ({ fetchAllArticles, topic }) => {
       </button>
       <button
         onClick={event => {
-          fetchAllArticles({
+          getArticles({
             sort_by: "votes",
             order: "asc",
             topic: topic
@@ -38,7 +38,7 @@ const ArticlesSorting = ({ fetchAllArticles, topic }) => {
       </button>
       <button
         onClick={event => {
-          fetchAllArticles({
+          getArticles({
             sort_by: "comment_count",
             order: "desc",
             topic: topic
