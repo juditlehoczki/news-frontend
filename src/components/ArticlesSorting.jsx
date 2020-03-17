@@ -1,13 +1,14 @@
 import React from "react";
 
-const ArticlesSorting = props => {
+const ArticlesSorting = ({ fetchAllArticles, topic }) => {
   return (
     <div>
       <button
         onClick={event => {
-          props.fetchAllArticles({
+          fetchAllArticles({
             sort_by: "created_at",
-            order: "desc"
+            order: "desc",
+            topic: topic
           });
         }}
       >
@@ -15,9 +16,10 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          props.fetchAllArticles({
+          fetchAllArticles({
             sort_by: "created_at",
-            order: "asc"
+            order: "asc",
+            topic: topic
           });
         }}
       >
@@ -25,9 +27,10 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          props.fetchAllArticles({
+          fetchAllArticles({
             sort_by: "votes",
-            order: "asc"
+            order: "asc",
+            topic: topic
           });
         }}
       >
@@ -35,9 +38,10 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          props.fetchAllArticles({
+          fetchAllArticles({
             sort_by: "comment_count",
-            order: "desc"
+            order: "desc",
+            topic: topic
           });
         }}
       >

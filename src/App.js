@@ -13,6 +13,7 @@ function App() {
       <Router>
         <ArticlesAll path="/" />
         <Article path="/articles/:article_id" />
+        <ArticlesAll path="/articles/topics/:topic" />
       </Router>
     </S.AppContainer>
   );

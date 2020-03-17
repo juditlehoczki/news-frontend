@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "@reach/router";
+import { Link } from "@reach/router";
 
 import { fetchArticles } from "../api";
 import ArticlePreview from "./ArticlePreview";
@@ -20,7 +20,7 @@ class ArticlesAll extends Component {
   };
 
   componentDidMount() {
-    this.fetchAllArticles({});
+    this.fetchAllArticles({ topic: this.props.topic });
   }
 
   render() {
@@ -31,10 +31,11 @@ class ArticlesAll extends Component {
           <p>Loading...</p>
         ) : (
           <div>
-            <ArticlesSorting fetchAllArticles={this.fetchAllArticles} />
-            {
-              // list of all topics
-            }
+            <ArticlesSorting
+              topic={this.props.topic}
+              fetchAllArticles={this.fetchAllArticles}
+            />
+            <Link to="/articles/topics/coding">Topic: coding</Link>
             {articles.map(article => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />
