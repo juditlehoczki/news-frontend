@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import S from './StyleComponents';
+import S from "./StyleComponents";
 
 const ArticlePreview = props => {
   const {
-    article_id,
+    // article_id,
     title,
     votes,
     topic,

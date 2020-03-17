@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const ArticlesSorting = props => {
   return (
     <div>
       <button
         onClick={event => {
-          console.log(event);
           props.fetchAllArticles({
-            sort_by: 'created_at',
-            order: 'desc'
+            sort_by: "created_at",
+            order: "desc"
           });
         }}
       >
@@ -16,10 +15,9 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          console.log(event);
           props.fetchAllArticles({
-            sort_by: 'created_at',
-            order: 'asc'
+            sort_by: "created_at",
+            order: "asc"
           });
         }}
       >
@@ -27,10 +25,9 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          console.log(event);
           props.fetchAllArticles({
-            sort_by: 'votes',
-            order: 'asc'
+            sort_by: "votes",
+            order: "asc"
           });
         }}
       >
@@ -38,10 +35,9 @@ const ArticlesSorting = props => {
       </button>
       <button
         onClick={event => {
-          console.log(event);
           props.fetchAllArticles({
-            sort_by: 'comment_count',
-            order: 'desc'
+            sort_by: "comment_count",
+            order: "desc"
           });
         }}
       >

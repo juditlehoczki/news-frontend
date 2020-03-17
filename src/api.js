@@ -1,9 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-const baseURL = 'https://press-jl.herokuapp.com/api/articles/';
+const baseURL = "https://press-jl.herokuapp.com/api/articles/";
 
 const fetchArticles = queries => {
-  console.log('stuff', queries);
   return axios.get(`${baseURL}`, {
     params: queries
   });

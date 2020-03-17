@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import React, { Component } from "react";
+// import { Link } from "@reach/router";
 
-import { fetchArticles } from '../api';
-import ArticlePreview from './ArticlePreview';
-import ArticlesSorting from './ArticlesSorting';
+import { fetchArticles } from "../api";
+import ArticlePreview from "./ArticlePreview";
+import ArticlesSorting from "./ArticlesSorting";
 
 class ArticlesAll extends Component {
   state = {
@@ -12,10 +12,8 @@ class ArticlesAll extends Component {
   };
 
   fetchAllArticles = queries => {
-    console.log('fetching articles...');
     fetchArticles(queries)
       .then(({ data }) => {
-        console.log('getting stuff bakc?', data);
         this.setState({ articles: data.articles, isLoading: false });
       })
       .catch(console.dir);
