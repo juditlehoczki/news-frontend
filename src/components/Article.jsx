@@ -7,17 +7,7 @@ import S from "./StyleComponents";
 
 class Article extends Component {
   state = {
-    article: {
-      article_id: 28,
-      title: "High Altitude Cooking",
-      body:
-        "Most backpacking trails vary only a few thousand feet elevation. However, many trails can be found above 10,000 feet. But what many people don’t take into consideration at these high altitudes is how these elevations affect their cooking.",
-      votes: 0,
-      topic: "cooking",
-      author: "happyamy2016",
-      created_at: "2018-05-27T03:32:28.514Z",
-      comment_count: "5"
-    },
+    article: {},
     isLoading: true
   };
 
