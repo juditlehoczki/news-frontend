@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 import { fetchArticleById } from "../api";
 import CommentsByArticle from "./CommentsByArticle";
@@ -36,7 +37,7 @@ class Article extends Component {
     return (
       <S.Article>
         <S.ArticleTitle>{title}</S.ArticleTitle>
-        <p>Topic: {topic}</p>
+        <Link to={`/articles/topics/${topic}`}>{topic}</Link>{" "}
         <p>Article: {body}</p>
         <span>
           Likes: {votes}

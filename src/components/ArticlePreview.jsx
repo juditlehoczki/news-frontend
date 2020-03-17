@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 import S from "./StyleComponents";
 
@@ -19,7 +20,7 @@ const ArticlePreview = props => {
         {title}
       </S.ArticlePreviewTitle>
       <div>
-        <p>Topic: {topic}</p>
+        in <Link to={`/articles/topics/${topic}`}>{topic}</Link>
         <span>
           Likes: {votes}
           Written by: {author}

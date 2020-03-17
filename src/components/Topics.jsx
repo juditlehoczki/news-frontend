@@ -10,7 +10,6 @@ class Topics extends Component {
 
   getTopics = () => {
     fetchTopics().then(({ data }) => {
-      console.log(data.topics);
       this.setState({ topics: data.topics });
     });
   };

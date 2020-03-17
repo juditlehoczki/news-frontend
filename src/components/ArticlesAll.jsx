@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
 
 import { fetchArticles } from "../api";
 import ArticlePreview from "./ArticlePreview";
@@ -9,7 +8,6 @@ import Topics from "./Topics";
 class ArticlesAll extends Component {
   state = {
     articles: [],
-    topics: ["coding"],
     isLoading: true
   };
 
@@ -24,6 +22,13 @@ class ArticlesAll extends Component {
   componentDidMount() {
     const { topic } = this.props;
     this.getArticles({ topic });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { topic } = this.props;
+    if (prevProps.topic !== this.props.topic) {
+      this.getArticles({ topic });
+    }
   }
 
   render() {
