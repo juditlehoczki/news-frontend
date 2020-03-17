@@ -1,15 +1,21 @@
 import axios from "axios";
 
-const baseURL = "https://press-jl.herokuapp.com/api/articles/";
+const articlesURL = "https://press-jl.herokuapp.com/api/articles/";
 
 const fetchArticles = queries => {
-  return axios.get(`${baseURL}`, {
+  return axios.get(`${articlesURL}`, {
     params: queries
   });
 };
 
-const fetchArticleById = id => {
-  return axios.get(`${baseURL}${id}`);
+const fetchArticleById = article_id => {
+  return axios.get(`${articlesURL}${article_id}`);
 };
 
-export { fetchArticles, fetchArticleById };
+const fetchCommentsByArticleId = article_id => {
+  return axios.get(
+    `https://press-jl.herokuapp.com/api/articles/${article_id}/comments`
+  );
+};
+
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId };

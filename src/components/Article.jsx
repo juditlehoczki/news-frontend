@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import { fetchArticleById } from '../api';
+import React, { Component } from "react";
 
-import S from './StyleComponents';
+import { fetchArticleById } from "../api";
+import CommentsByArticle from "./CommentsByArticle";
+
+import S from "./StyleComponents";
 
 class Article extends Component {
   state = {
     article: {
       article_id: 28,
-      title: 'High Altitude Cooking',
+      title: "High Altitude Cooking",
       body:
-        'Most backpacking trails vary only a few thousand feet elevation. However, many trails can be found above 10,000 feet. But what many people don’t take into consideration at these high altitudes is how these elevations affect their cooking.',
+        "Most backpacking trails vary only a few thousand feet elevation. However, many trails can be found above 10,000 feet. But what many people don’t take into consideration at these high altitudes is how these elevations affect their cooking.",
       votes: 0,
-      topic: 'cooking',
-      author: 'happyamy2016',
-      created_at: '2018-05-27T03:32:28.514Z',
-      comment_count: '5'
+      topic: "cooking",
+      author: "happyamy2016",
+      created_at: "2018-05-27T03:32:28.514Z",
+      comment_count: "5"
     },
     isLoading: true
   };
@@ -52,6 +54,7 @@ class Article extends Component {
           Date: {created_at}
           Comments: {comment_count}
         </span>
+        <CommentsByArticle article_id={this.props.article_id} />
       </S.Article>
     );
   }

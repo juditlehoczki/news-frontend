@@ -36,4 +36,10 @@ S.ArticleTitle = styled.h1`
   font-size: 1.5em;
 `;
 
+S.CommentTile = styled.div`
+  border: 1px solid black;
+  margin: 5px auto;
+  padding: 5px;
+`;
+
 export default S;
