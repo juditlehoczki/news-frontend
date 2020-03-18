@@ -20,9 +20,14 @@ const fetchTopics = () => {
   return axios.get(`${baseUrl}/topics`);
 };
 
+const patchArticle = (article_id, inc_votes) => {
+  return axios.patch(`${baseUrl}/articles/${article_id}`, inc_votes);
+};
+
 export {
   fetchArticles,
   fetchArticleById,
   fetchCommentsByArticleId,
-  fetchTopics
+  fetchTopics,
+  patchArticle
 };

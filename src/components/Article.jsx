@@ -3,6 +3,8 @@ import { Link } from "@reach/router";
 
 import { fetchArticleById } from "../api";
 import CommentsByArticle from "./CommentsByArticle";
+import Votes from "./Votes";
+import CommentPost from "./CommentPost";
 
 import S from "./StyleComponents";
 
@@ -34,18 +36,21 @@ class Article extends Component {
       created_at,
       comment_count
     } = this.state.article;
+    const { article_id } = this.props;
     return (
       <S.Article>
         <S.ArticleTitle>{title}</S.ArticleTitle>
         <Link to={`/articles/topics/${topic}`}>{topic}</Link>{" "}
         <p>Article: {body}</p>
         <span>
-          Up {votes} Down
+          {votes}
+          <Votes article_id={article_id} />
           <Link to={`/articles/authors/${author}`}>Written by: {author}</Link>
           Date: {created_at}
           Comments: {comment_count}
         </span>
-        <CommentsByArticle article_id={this.props.article_id} />
+        <CommentPost />
+        <CommentsByArticle article_id={article_id} />
       </S.Article>
     );
   }

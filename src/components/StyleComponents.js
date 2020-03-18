@@ -43,4 +43,15 @@ S.CommentTile = styled.div`
   padding: 5px;
 `;
 
+S.CommentPostContainer = styled.div`
+  border: 1px solid black;
+  margin: 5px auto;
+  padding: 5px;
+`;
+
+S.CommentPostInput = styled.input`
+  width: 80%;
+  height: 10em;
+`;
+
 export default S;

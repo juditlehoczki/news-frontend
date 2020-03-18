@@ -23,7 +23,7 @@ const ArticlePreview = props => {
         <p>{topic}</p>
       </Link>
       <span>
-        Up {votes}Down
+        Votes: {votes}
         <Link to={`/articles/authors/${author}`}>Written by: {author}</Link>
         Date: {created_at}
         Comments: {comment_count}
