@@ -3,6 +3,8 @@ import { Link } from "@reach/router";
 
 import { fetchTopics } from "../api";
 
+import S from "./StyleComponents";
+
 class Topics extends Component {
   state = {
     topics: []
@@ -20,15 +22,15 @@ class Topics extends Component {
 
   render() {
     return (
-      <div>
+      <S.TopicsContainer>
         {this.state.topics.map(topic => {
           return (
-            <Link key={topic.slug} to={`/articles/topics/${topic.slug}`}>
+            <S.TopicSlug key={topic.slug} to={`/articles/topics/${topic.slug}`}>
               {topic.slug}
-            </Link>
+            </S.TopicSlug>
           );
         })}
-      </div>
+      </S.TopicsContainer>
     );
   }
 }

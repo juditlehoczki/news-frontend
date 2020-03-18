@@ -8,23 +8,39 @@ S.AppContainer = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  font-family: ${props => props.theme.fonts.main};
 `;
 
 S.Header = styled(Link)`
   border: 1px solid black;
   margin: 0px;
   font-size: 1.5em;
+  font-family: ${props => props.theme.fonts.title};
 `;
+
+S.TopicsContainer = styled.div`
+  border: 1px solid black;
+`;
+
+S.TopicSlug = styled(Link)`
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+`;
+
+S.TopicDescription = styled.div``;
 
 S.ArticlePreview = styled.div`
   border: 1px solid black;
   margin: 5px auto;
   padding: 5px;
+  background: ${props => props.theme.dark.bg};
 `;
 
 S.ArticlePreviewTitle = styled(Link)`
   text-decoration: none;
   font-size: 1.5em;
+  font-family: ${props => props.theme.fonts.title};
 `;
 
 S.Article = styled.div`
@@ -35,6 +51,7 @@ S.Article = styled.div`
 
 S.ArticleTitle = styled.h1`
   font-size: 1.5em;
+  font-family: ${props => props.theme.fonts.title};
 `;
 
 S.CommentTile = styled.div`
