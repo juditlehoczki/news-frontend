@@ -1,15 +1,18 @@
 import React from "react";
 
+import Votes from "./Votes";
+
 import S from "./StyleComponents";
 
 const Comment = props => {
-  const { comment } = props;
+  const { body, votes, created_at, author, comment_id } = props.comment;
   return (
     <S.CommentTile>
-      {comment.body}
-      {comment.votes}
-      {comment.created_at}
-      {comment.author}
+      {body}
+      {votes}
+      {created_at}
+      {author}
+      <Votes type={"comments"} id={comment_id} votes={votes} />
     </S.CommentTile>
   );
 };

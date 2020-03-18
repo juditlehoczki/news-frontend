@@ -52,7 +52,7 @@ class Article extends Component {
             <Link to={`/articles/topics/${topic}`}>{topic}</Link>{" "}
             <p>Article: {body}</p>
             <span>
-              <Votes article_id={article_id} votes={votes} />
+              <Votes type={"articles"} id={article_id} votes={votes} />
               <Link to={`/articles/authors/${author}`}>
                 Written by: {author}
               </Link>

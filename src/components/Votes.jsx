@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { patchArticle } from "../api";
+import { patchVote } from "../api";
 
 class Votes extends Component {
   state = {
@@ -7,8 +7,8 @@ class Votes extends Component {
     error: false
   };
 
-  voteArticle = num => {
-    patchArticle(this.props.article_id, num).catch(error => {
+  updateVote = num => {
+    patchVote(this.props.type, this.props.id, num).catch(error => {
       this.setState(currentState => {
         return {
           voteChange: currentState.voteChange - num,
@@ -33,7 +33,7 @@ class Votes extends Component {
         {error && <p>Oops, something's gone wrong...</p>}
         <button
           onClick={() => {
-            this.voteArticle(1);
+            this.updateVote(1);
           }}
         >
           Up
@@ -41,7 +41,7 @@ class Votes extends Component {
         Current vote count: {votes + voteChange}
         <button
           onClick={() => {
-            this.voteArticle(-1);
+            this.updateVote(-1);
           }}
         >
           Down
