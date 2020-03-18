@@ -25,12 +25,12 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
         Oldest
       </button>
       <button
-        id="votes asc"
+        id="votes desc"
         onClick={e => {
           getArticlesWithQueries(e);
         }}
       >
-        Most Liked
+        Most Popular
       </button>
       <button
         id="comment_count desc"

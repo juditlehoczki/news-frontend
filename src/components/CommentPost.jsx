@@ -7,10 +7,21 @@ class CommentPost extends Component {
     comment: ""
   };
 
+  handleChange = e => {
+    // console.log(e.target.value);
+    this.setState({ comment: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    // console.log("HANDLESUBMIT>>>>>", e.target.value);
+  };
+
   render() {
+    // console.log("state.comment here>>>>", this.state.comment);
     return (
       <S.CommentPostContainer>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Logged in as:
             <input type="text" />
@@ -18,6 +29,8 @@ class CommentPost extends Component {
           <label>
             Comment:
             <S.CommentPostInput
+              onChange={this.handleChange}
+              value={this.state.comment}
               type="text"
               placeholder="Leave a comment..."
             ></S.CommentPostInput>
