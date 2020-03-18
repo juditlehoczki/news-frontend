@@ -7,11 +7,11 @@ import Article from "./components/Article";
 import ErrorMsg from "./components/ErrorMsg";
 
 import S from "./components/StyleComponents";
-import { theme } from "./themes";
+import { dark, light } from "./themes";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={dark}>
       <S.AppContainer>
         <S.Header to="/">Press JL</S.Header>
         <Router>

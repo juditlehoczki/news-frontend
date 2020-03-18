@@ -15,7 +15,10 @@ S.Header = styled(Link)`
   border: 1px solid black;
   margin: 0px;
   font-size: 1.5em;
-  font-family: ${props => props.theme.fonts.title};
+  font-family: ${props => props.theme.fonts.header};
+  text-decoration: none;
+  text-align: left;
+  color: ${props => props.theme.colours.mainFont};
 `;
 
 S.TopicsContainer = styled.div`
@@ -25,22 +28,50 @@ S.TopicsContainer = styled.div`
 S.TopicSlug = styled(Link)`
   position: relative;
   display: inline-block;
-  padding: 20px;
+  padding: 0px 5px;
+  text-decoration: none;
+  color: ${props => props.theme.colours.mainFont};
 `;
 
 S.TopicDescription = styled.div``;
+
+S.ArticlesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 S.ArticlePreview = styled.div`
   border: 1px solid black;
   margin: 5px auto;
   padding: 5px;
-  background: ${props => props.theme.dark.bg};
+  min-width: 330px;
+  width: 48%;
+  background: ${props => props.theme.colours.bg};
 `;
 
 S.ArticlePreviewTitle = styled(Link)`
+  color: ${props => props.theme.colours.mainFont};
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-family: ${props => props.theme.fonts.title};
+`;
+
+S.ArticlePreviewDetails = styled.div`
+  font-size: 0.8em;
+`;
+
+S.ArticlePreviewWrittenBy = styled(Link)`
+  text-decoration: underline dotted grey;
+  &:hover {
+    background: blue;
+  }
+`;
+
+S.ArticlePreviewTopic = styled(Link)`
+  text-decoration: underline dotted grey;
+  &:hover {
+    background: blue;
+  }
 `;
 
 S.Article = styled.div`

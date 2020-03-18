@@ -6,6 +6,8 @@ import ArticlesSorting from "./ArticlesSorting";
 import Topics from "./Topics";
 import ErrorMsg from "./ErrorMsg";
 
+import S from "./StyleComponents";
+
 class ArticlesAll extends Component {
   state = {
     articles: [],
@@ -41,20 +43,20 @@ class ArticlesAll extends Component {
       <>
         {isLoading && <p>Loading...</p>}
         <div>
+          <Topics />
           <ArticlesSorting
             topic={this.props.topic}
             author={this.props.author}
             getArticles={this.getArticles}
           />
-          <Topics />
           {error && <ErrorMsg status={error.status} msg={error.data.msg} />}
-          <>
+          <S.ArticlesContainer>
             {articles.map(article => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />
               );
             })}
-          </>
+          </S.ArticlesContainer>
         </div>
       </>
     );

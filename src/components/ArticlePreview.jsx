@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import moment from "moment";
 
 import S from "./StyleComponents";
 
@@ -19,14 +20,22 @@ const ArticlePreview = props => {
       <S.ArticlePreviewTitle to={`/articles/${article_id}`}>
         {title}
       </S.ArticlePreviewTitle>
-      <Link to={`/articles/topics/${topic}`}>
-        <p>{topic}</p>
-      </Link>
+      <br />
+      <S.ArticlePreviewDetails>
+        Written by{" "}
+        <S.ArticlePreviewWrittenBy to={`/articles/authors/${author}`}>
+          {author}
+        </S.ArticlePreviewWrittenBy>{" "}
+        in{" "}
+        <S.ArticlePreviewTopic to={`/articles/topics/${topic}`}>
+          {topic}
+        </S.ArticlePreviewTopic>{" "}
+        on {moment(created_at).format("DD-MM-YYYY")}
+      </S.ArticlePreviewDetails>
       <span>
         Votes: {votes}
-        <Link to={`/articles/authors/${author}`}>Written by: {author}</Link>
-        Date: {created_at}
-        Comments: {comment_count}
+        Comments:
+        {comment_count}
       </span>
     </S.ArticlePreview>
   );

@@ -1,16 +1,21 @@
-const theme = {
+const dark = {
   fonts: {
     title: "'Anton', sans-serif",
-    main: "'Montserrat', sans-serif"
+    main: "'Montserrat', sans-serif",
+    header: "'Monoton', cursive;"
   },
-  dark: {
-    bg: "grey",
-    fg: "yellow"
-  },
-  light: {
-    bg: "yellow",
-    fg: "grey"
+  colours: {
+    mainFont: "green"
   }
 };
 
-export { theme };
+const light = {
+  fonts: {
+    title: "'Anton', sans-serif",
+    main: "'Montserrat', sans-serif",
+    header: "'Monoton', cursive;"
+  },
+  colours: {}
+};
+
+export { dark, light };
