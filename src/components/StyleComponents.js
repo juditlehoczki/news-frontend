@@ -12,9 +12,10 @@ S.AppContainer = styled.div`
 `;
 
 S.Header = styled(Link)`
-  border: 1px solid black;
+  // border: 1px solid black;
+  padding: 0px 5px;
   margin: 0px;
-  font-size: 1.5em;
+  font-size: 2em;
   font-family: ${props => props.theme.fonts.header};
   text-decoration: none;
   text-align: left;
@@ -42,6 +43,7 @@ S.ArticlesContainer = styled.div`
 
 S.ArticlePreview = styled.div`
   border: 1px solid black;
+  border-radius: 2px;
   margin: 5px auto;
   padding: 5px;
   min-width: 330px;
@@ -60,17 +62,28 @@ S.ArticlePreviewDetails = styled.div`
   font-size: 0.8em;
 `;
 
-S.ArticlePreviewWrittenBy = styled(Link)`
-  text-decoration: underline dotted grey;
+S.WrittenByLink = styled(Link)`
+  text-decoration: underline dotted black;
+  &:hover {
+    background: lightgrey;
+    border-radius: 5px;
+  }
+`;
+
+S.TopicLink = styled(Link)`
+  text-decoration: underline dotted black;
   &:hover {
     background: blue;
   }
 `;
 
-S.ArticlePreviewTopic = styled(Link)`
-  text-decoration: underline dotted grey;
-  &:hover {
-    background: blue;
+S.Reactions = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0px;
+
+  > * {
+    margin: 0px auto;
   }
 `;
 
@@ -83,6 +96,15 @@ S.Article = styled.div`
 S.ArticleTitle = styled.h1`
   font-size: 1.5em;
   font-family: ${props => props.theme.fonts.title};
+`;
+
+S.ArticleBody = styled.article`
+  text-align: justify;
+  text-indent: 3%;
+  padding: 0px 10px;
+  margin: 20px 0px;
+  font-size: 1em;
+  line-height: 1.5;
 `;
 
 S.CommentTile = styled.div`

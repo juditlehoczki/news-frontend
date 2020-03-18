@@ -23,20 +23,16 @@ const ArticlePreview = props => {
       <br />
       <S.ArticlePreviewDetails>
         Written by{" "}
-        <S.ArticlePreviewWrittenBy to={`/articles/authors/${author}`}>
+        <S.WrittenByLink to={`/articles/authors/${author}`}>
           {author}
-        </S.ArticlePreviewWrittenBy>{" "}
-        in{" "}
-        <S.ArticlePreviewTopic to={`/articles/topics/${topic}`}>
-          {topic}
-        </S.ArticlePreviewTopic>{" "}
+        </S.WrittenByLink>{" "}
+        in <S.TopicLink to={`/articles/topics/${topic}`}>{topic}</S.TopicLink>{" "}
         on {moment(created_at).format("DD-MM-YYYY")}
       </S.ArticlePreviewDetails>
-      <span>
-        Votes: {votes}
-        Comments:
-        {comment_count}
-      </span>
+      <S.Reactions>
+        <p>↑{votes}↓</p>
+        <p>✎{comment_count}</p>
+      </S.Reactions>
     </S.ArticlePreview>
   );
 };

@@ -5,7 +5,7 @@ const dark = {
     header: "'Monoton', cursive;"
   },
   colours: {
-    mainFont: "green"
+    mainFont: "black"
   }
 };
 

@@ -13,7 +13,7 @@ function App() {
   return (
     <ThemeProvider theme={dark}>
       <S.AppContainer>
-        <S.Header to="/">Press JL</S.Header>
+        <S.Header to="/">▸Press JL</S.Header>
         <Router>
           <ArticlesAll path="/" />
           <Article path="/articles/:article_id" />

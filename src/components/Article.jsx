@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import moment from "moment";
 
 import { fetchArticleById } from "../api";
 import CommentsByArticle from "./CommentsByArticle";
@@ -49,16 +50,18 @@ class Article extends Component {
         ) : (
           <S.Article>
             <S.ArticleTitle>{title}</S.ArticleTitle>
-            <Link to={`/articles/topics/${topic}`}>{topic}</Link>{" "}
-            <p>Article: {body}</p>
-            <span>
+            Written by{" "}
+            <S.WrittenByLink to={`/articles/authors/${author}`}>
+              {author}
+            </S.WrittenByLink>{" "}
+            in{" "}
+            <S.TopicLink to={`/articles/topics/${topic}`}>{topic}</S.TopicLink>{" "}
+            on {moment(created_at).format("DD-MM-YYYY")}
+            <S.ArticleBody>{body}</S.ArticleBody>
+            <S.Reactions>
               <Votes type={"articles"} id={article_id} votes={votes} />
-              <Link to={`/articles/authors/${author}`}>
-                Written by: {author}
-              </Link>
-              Date: {created_at}
-              Comments: {comment_count}
-            </span>
+              <p>✎{comment_count}</p>
+            </S.Reactions>
             <CommentPost />
             <CommentsByArticle article_id={article_id} />
           </S.Article>

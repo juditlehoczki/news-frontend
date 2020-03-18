@@ -36,15 +36,15 @@ class Votes extends Component {
             this.updateVote(1);
           }}
         >
-          Up
+          ↑
         </button>
-        Current vote count: {votes + voteChange}
+        {votes + voteChange}
         <button
           onClick={() => {
             this.updateVote(-1);
           }}
         >
-          Down
+          ↓
         </button>
       </div>
     );
