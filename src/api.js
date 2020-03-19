@@ -28,11 +28,16 @@ const postComment = (id, comment) => {
   return axios.post(`${baseUrl}/articles/${id}/comments/`, comment);
 };
 
+const deleteComment = id => {
+  return axios.delete(`${baseUrl}/comments/${id}/`);
+};
+
 export {
   fetchArticles,
   fetchArticleById,
   fetchCommentsByArticleId,
   fetchTopics,
   patchVote,
-  postComment
+  postComment,
+  deleteComment
 };
