@@ -1,6 +1,7 @@
 import React from "react";
 import { Router } from "@reach/router";
 import { ThemeProvider } from "styled-components";
+import moment from "moment";
 
 import ArticlesAll from "./components/ArticlesAll";
 import Article from "./components/Article";
@@ -13,7 +14,15 @@ function App() {
   return (
     <ThemeProvider theme={dark}>
       <S.AppContainer>
-        <S.Header to="/">▸Press JL</S.Header>
+        <S.HeaderContainer to="/">
+          <S.HeaderTitle>❥The Daily News</S.HeaderTitle>
+          <S.HeaderSubtitle>Brought To You By ▸Press JL</S.HeaderSubtitle>
+        </S.HeaderContainer>
+        <S.HeaderDetails>
+          <span>VOL. I. No. 1.</span>
+          <span>{moment().format("dddd Do MMMM YYYY")}</span>
+          <span>Since 2020</span>
+        </S.HeaderDetails>
         <Router>
           <ArticlesAll path="/" />
           <Article path="/articles/:article_id" />

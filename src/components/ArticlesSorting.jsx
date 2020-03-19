@@ -14,15 +14,7 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
           getArticlesWithQueries(e);
         }}
       >
-        Newest
-      </button>
-      <button
-        id="created_at asc"
-        onClick={e => {
-          getArticlesWithQueries(e);
-        }}
-      >
-        Oldest
+        The Newest In!
       </button>
       <button
         id="votes desc"
@@ -30,7 +22,7 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
           getArticlesWithQueries(e);
         }}
       >
-        Most Popular
+        Hottest{" "}
       </button>
       <button
         id="comment_count desc"
@@ -38,7 +30,7 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
           getArticlesWithQueries(e);
         }}
       >
-        Most Commented
+        Most Talked About
       </button>
     </div>
   );

@@ -6,20 +6,42 @@ const S = {};
 S.AppContainer = styled.div`
   text-align: center;
   justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   font-family: ${props => props.theme.fonts.main};
 `;
 
-S.Header = styled(Link)`
-  // border: 1px solid black;
+S.HeaderContainer = styled(Link)`
+  max-width: content;
   padding: 0px 5px;
-  margin: 0px;
-  font-size: 2em;
-  font-family: ${props => props.theme.fonts.header};
   text-decoration: none;
-  text-align: left;
   color: ${props => props.theme.colours.mainFont};
+`;
+
+S.HeaderTitle = styled.h1`
+  font-size: 3em;
+  font-family: ${props => props.theme.fonts.header1};
+  margin: 0px;
+`;
+
+S.HeaderSubtitle = styled.h2`
+  font-family: ${props => props.theme.fonts.header2};
+  font-size: 0.7em;
+  line-height: 0.75;
+  text-align: right;
+  margin: 0px;
+`;
+
+S.HeaderDetails = styled.h2`
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid ${props => props.theme.colours.mainFont};
+  border-bottom: 1px solid ${props => props.theme.colours.mainFont};
+  width: 100%;
+  font-size: 0.75em;
+  color: ${props => props.theme.colours.mainFont};
+  padding: 10px 0px;
 `;
 
 S.TopicsContainer = styled.div`
@@ -29,7 +51,7 @@ S.TopicsContainer = styled.div`
 S.TopicSlug = styled(Link)`
   position: relative;
   display: inline-block;
-  padding: 0px 5px;
+  padding: 0px 20px;
   text-decoration: none;
   color: ${props => props.theme.colours.mainFont};
 `;

@@ -2,7 +2,8 @@ const dark = {
   fonts: {
     title: "'Anton', sans-serif",
     main: "'Montserrat', sans-serif",
-    header: "'Monoton', cursive;"
+    header1: "'Diplomata', cursive",
+    header2: "'Monoton', cursive;"
   },
   colours: {
     mainFont: "black"
