@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import S from "./StyleComponents";
+import S from "./StyledComponents";
 
 const ArticlePreview = props => {
   const {

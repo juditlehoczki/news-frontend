@@ -7,7 +7,7 @@ import ArticlesAll from "./components/ArticlesAll";
 import Article from "./components/Article";
 import ErrorMsg from "./components/ErrorMsg";
 
-import S from "./components/StyleComponents";
+import S from "./components/StyledComponents";
 import { dark, light } from "./themes";
 import Login from "./components/Login";
 

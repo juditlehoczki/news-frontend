@@ -6,7 +6,7 @@ import ArticlesSorting from "./ArticlesSorting";
 import Topics from "./Topics";
 import ErrorMsg from "./ErrorMsg";
 
-import S from "./StyleComponents";
+import S from "./StyledComponents";
 
 class ArticlesAll extends Component {
   state = {

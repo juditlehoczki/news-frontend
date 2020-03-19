@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import S from "./StyleComponents";
+import S from "./StyledComponents";
 import { postComment } from "../api";
 
 class CommentPost extends Component {

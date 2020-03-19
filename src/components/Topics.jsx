@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { fetchTopics } from "../api";
 
-import S from "./StyleComponents";
+import S from "./StyledComponents";
 
 class Topics extends Component {
   state = {

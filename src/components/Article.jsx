@@ -6,7 +6,7 @@ import CommentsByArticle from "./CommentsByArticle";
 import Votes from "./Votes";
 import ErrorMsg from "./ErrorMsg";
 
-import S from "./StyleComponents";
+import S from "./StyledComponents";
 
 class Article extends Component {
   state = {
