@@ -28,7 +28,7 @@ S.HeaderTitle = styled.h1`
 S.HeaderSubtitle = styled.h2`
   font-family: ${props => props.theme.fonts.header2};
   font-size: 0.7em;
-  line-height: 0.75;
+  line-height: 0.1;
   text-align: right;
   margin: 0px;
 `;

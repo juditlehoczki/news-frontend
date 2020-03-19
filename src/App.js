@@ -13,7 +13,7 @@ import Login from "./components/Login";
 
 class App extends Component {
   state = {
-    userLoggedIn: "Judit"
+    userLoggedIn: "jessjelly"
   };
 
   setUserLoggedIn = username => {
@@ -39,7 +39,7 @@ class App extends Component {
           </S.HeaderDetails>
           <Router>
             <ArticlesAll path="/" />
-            <Article path="/articles/:article_id" />
+            <Article path="/articles/:article_id" userLoggedIn={userLoggedIn} />
             <ArticlesAll path="/articles/topics/:topic" />
             <ArticlesAll path="/articles/authors/:author" />
             <ErrorMsg status="404" msg="Page Not Found" default />

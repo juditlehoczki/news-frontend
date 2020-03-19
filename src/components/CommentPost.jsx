@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import S from "./StyleComponents";
+import { postComment } from "../api";
 
 class CommentPost extends Component {
   state = {
@@ -8,36 +9,45 @@ class CommentPost extends Component {
   };
 
   handleChange = e => {
-    // console.log(e.target.value);
     this.setState({ comment: e.target.value });
   };
 
   handleSubmit = e => {
+    const { article_id, userLoggedIn } = this.props;
     e.preventDefault();
-    // console.log("HANDLESUBMIT>>>>>", e.target.value);
+    postComment(article_id, {
+      username: userLoggedIn,
+      body: this.state.comment
+    })
+      .then(res => {
+        this.props.addNewComment(res.data.comment);
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
-    // console.log("state.comment here>>>>", this.state.comment);
+    const { userLoggedIn } = this.props;
     return (
-      <S.CommentPostContainer>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Logged in as:
-            <input type="text" />
-          </label>
-          <label>
-            Comment:
-            <S.CommentPostInput
-              onChange={this.handleChange}
-              value={this.state.comment}
-              type="text"
-              placeholder="Leave a comment..."
-            ></S.CommentPostInput>
-          </label>
-          <button>Send</button>
-        </form>
-      </S.CommentPostContainer>
+      <div>
+        {userLoggedIn ? (
+          <S.CommentPostContainer>
+            Logged in as {userLoggedIn}.
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                <S.CommentPostInput
+                  onChange={this.handleChange}
+                  value={this.state.comment}
+                  type="text"
+                  placeholder="Leave a comment..."
+                ></S.CommentPostInput>
+              </label>
+              <button>Send</button>
+            </form>
+          </S.CommentPostContainer>
+        ) : (
+          <p>Please log in to leave a comment. </p>
+        )}
+      </div>
     );
   }
 }

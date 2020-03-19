@@ -24,10 +24,15 @@ const patchVote = (type, id, num) => {
   return axios.patch(`${baseUrl}/${type}/${id}`, { inc_votes: num });
 };
 
+const postComment = (id, comment) => {
+  return axios.post(`${baseUrl}/articles/${id}/comments/`, comment);
+};
+
 export {
   fetchArticles,
   fetchArticleById,
   fetchCommentsByArticleId,
   fetchTopics,
-  patchVote
+  patchVote,
+  postComment
 };

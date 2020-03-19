@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
 import moment from "moment";
 
 import { fetchArticleById } from "../api";
 import CommentsByArticle from "./CommentsByArticle";
 import Votes from "./Votes";
-import CommentPost from "./CommentPost";
 import ErrorMsg from "./ErrorMsg";
 
 import S from "./StyleComponents";
@@ -62,8 +60,10 @@ class Article extends Component {
               <Votes type={"articles"} id={article_id} votes={votes} />
               <p>✎{comment_count}</p>
             </S.Reactions>
-            <CommentPost />
-            <CommentsByArticle article_id={article_id} />
+            <CommentsByArticle
+              article_id={article_id}
+              userLoggedIn={this.props.userLoggedIn}
+            />
           </S.Article>
         )}
       </>
