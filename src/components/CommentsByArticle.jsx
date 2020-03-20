@@ -3,11 +3,13 @@ import React, { Component } from "react";
 import { fetchCommentsByArticleId } from "../api";
 import Comment from "./Comment";
 import CommentPost from "./CommentPost";
+import Pagination from "./Pagination";
 
 class CommentsByArticle extends Component {
   state = {
     comments: [],
-    isLoading: true
+    isLoading: true,
+    p: 1
   };
 
   addNewComment = comment => {
@@ -17,9 +19,12 @@ class CommentsByArticle extends Component {
   };
 
   fetchComments = props => {
-    fetchCommentsByArticleId(this.props.article_id)
+    fetchCommentsByArticleId(this.props.article_id, { p: this.state.p })
       .then(({ data }) => {
-        this.setState({ comments: data.comments, isLoading: false });
+        this.setState({
+          comments: data.comments,
+          isLoading: false
+        });
       })
       .catch(console.dir);
   };
@@ -28,8 +33,21 @@ class CommentsByArticle extends Component {
     this.fetchComments();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.p !== this.state.p) {
+      this.fetchComments();
+    }
+  }
+
+  changePage = num => {
+    this.setState(currentState => {
+      return { p: currentState.p + num };
+    });
+  };
+
   render() {
-    const { comments, isLoading } = this.state;
+    const { comments, isLoading, p } = this.state;
+    const { comment_count } = this.props;
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -50,6 +68,11 @@ class CommentsByArticle extends Component {
               />
             );
           })}
+          <Pagination
+            changePage={this.changePage}
+            p={p}
+            total_count={comment_count}
+          />
         </div>
       );
     }

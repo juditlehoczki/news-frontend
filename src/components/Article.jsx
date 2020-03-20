@@ -65,6 +65,7 @@ class Article extends Component {
           <CommentsByArticle
             article_id={article_id}
             userLoggedIn={this.props.userLoggedIn}
+            comment_count={comment_count}
           />
         </S.Article>
       );

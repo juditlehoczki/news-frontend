@@ -12,8 +12,8 @@ const fetchArticleById = article_id => {
   return axios.get(`${baseUrl}/articles/${article_id}`);
 };
 
-const fetchCommentsByArticleId = article_id => {
-  return axios.get(`${baseUrl}/articles/${article_id}/comments`);
+const fetchCommentsByArticleId = (article_id, p) => {
+  return axios.get(`${baseUrl}/articles/${article_id}/comments`, { params: p });
 };
 
 const fetchTopics = () => {
