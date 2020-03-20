@@ -32,6 +32,7 @@ class Votes extends Component {
       <div>
         {error && <p>Oops, something's gone wrong...</p>}
         <button
+          disabled={voteChange === 1}
           onClick={() => {
             this.updateVote(1);
           }}
@@ -40,6 +41,7 @@ class Votes extends Component {
         </button>
         {votes + voteChange}
         <button
+          disabled={voteChange === -1}
           onClick={() => {
             this.updateVote(-1);
           }}
