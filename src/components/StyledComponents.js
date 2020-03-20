@@ -95,7 +95,8 @@ S.WrittenByLink = styled(Link)`
 S.TopicLink = styled(Link)`
   text-decoration: underline dotted black;
   &:hover {
-    background: blue;
+    background: lightgrey;
+    border-radius: 5px;
   }
 `;
 
@@ -144,6 +145,17 @@ S.CommentPostContainer = styled.div`
 S.CommentPostInput = styled.input`
   width: 80%;
   height: 10em;
+`;
+
+S.Footer = styled.div`
+  font-size: 0.6em;
+  & a {
+    text-decoration: underline dotted black;
+    &:hover {
+      background: lightgrey;
+      border-radius: 5px;
+    }
+  }
 `;
 
 export default S;

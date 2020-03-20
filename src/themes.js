@@ -6,7 +6,8 @@ const dark = {
     header2: "'Monoton', cursive;"
   },
   colours: {
-    mainFont: "black"
+    mainFont: "black",
+    bg: "white"
   }
 };
 
@@ -16,7 +17,10 @@ const light = {
     main: "'Montserrat', sans-serif",
     header: "'Monoton', cursive;"
   },
-  colours: {}
+  colours: {
+    mainFont: "white",
+    bg: "black"
+  }
 };
 
 export { dark, light };

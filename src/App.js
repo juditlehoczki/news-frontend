@@ -6,6 +6,7 @@ import moment from "moment";
 import ArticlesAll from "./components/ArticlesAll";
 import Article from "./components/Article";
 import ErrorMsg from "./components/ErrorMsg";
+import Footer from "./components/Footer";
 
 import S from "./components/StyledComponents";
 import { dark, light } from "./themes";
@@ -44,6 +45,7 @@ class App extends Component {
             <ArticlesAll path="/articles/authors/:author" />
             <ErrorMsg status="404" msg="Page Not Found" default />
           </Router>
+          <Footer />
         </S.AppContainer>
       </ThemeProvider>
     );
