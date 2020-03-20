@@ -30,30 +30,29 @@ class CommentsByArticle extends Component {
 
   render() {
     const { comments, isLoading } = this.state;
-    return (
-      <>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <div>
-            <CommentPost
-              article_id={this.props.article_id}
-              userLoggedIn={this.props.userLoggedIn}
-              addNewComment={this.addNewComment}
-            />
-            {comments.map(comment => {
-              return (
-                <Comment
-                  key={comment.comment_id}
-                  comment={comment}
-                  userLoggedIn={this.props.userLoggedIn}
-                />
-              );
-            })}
-          </div>
-        )}
-      </>
-    );
+
+    if (isLoading) {
+      return <p>Loading...</p>;
+    } else {
+      return (
+        <div>
+          <CommentPost
+            article_id={this.props.article_id}
+            userLoggedIn={this.props.userLoggedIn}
+            addNewComment={this.addNewComment}
+          />
+          {comments.map(comment => {
+            return (
+              <Comment
+                key={comment.comment_id}
+                comment={comment}
+                userLoggedIn={this.props.userLoggedIn}
+              />
+            );
+          })}
+        </div>
+      );
+    }
   }
 }
 

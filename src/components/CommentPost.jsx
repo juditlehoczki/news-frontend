@@ -28,28 +28,27 @@ class CommentPost extends Component {
 
   render() {
     const { userLoggedIn } = this.props;
-    return (
-      <div>
-        {userLoggedIn ? (
-          <S.CommentPostContainer>
-            Logged in as {userLoggedIn}.
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                <S.CommentPostInput
-                  onChange={this.handleChange}
-                  value={this.state.comment}
-                  type="text"
-                  placeholder="Leave a comment..."
-                ></S.CommentPostInput>
-              </label>
-              <button>Send</button>
-            </form>
-          </S.CommentPostContainer>
-        ) : (
-          <p>Please log in to leave a comment. </p>
-        )}
-      </div>
-    );
+
+    if (userLoggedIn) {
+      return (
+        <S.CommentPostContainer>
+          Logged in as {userLoggedIn}.
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <S.CommentPostInput
+                onChange={this.handleChange}
+                value={this.state.comment}
+                type="text"
+                placeholder="Leave a comment..."
+              ></S.CommentPostInput>
+            </label>
+            <button>Send</button>
+          </form>
+        </S.CommentPostContainer>
+      );
+    } else {
+      return <p>Please log in to leave a comment. </p>;
+    }
   }
 }
 

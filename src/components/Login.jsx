@@ -21,30 +21,30 @@ class Login extends Component {
 
   render() {
     const { userLoggedIn } = this.props;
-    return (
-      <>
-        {userLoggedIn ? (
-          <div>
-            Logged In: {userLoggedIn} <br />
-            <button onClick={this.logOut}>(Not You?)</button>
-          </div>
-        ) : (
-          <div>
-            <form onSubmit={this.logIn}>
-              <label>
-                <input
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                />
-                <br />
-                <button>Log In</button>
-              </label>
-            </form>
-          </div>
-        )}
-      </>
-    );
+    if (userLoggedIn) {
+      return (
+        <div>
+          Logged In: {userLoggedIn} <br />
+          <button onClick={this.logOut}>(Not You?)</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <form onSubmit={this.logIn}>
+            <label>
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+              <br />
+              <button>Log In</button>
+            </label>
+          </form>
+        </div>
+      );
+    }
   }
 }
 

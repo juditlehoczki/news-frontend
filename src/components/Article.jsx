@@ -39,35 +39,36 @@ class Article extends Component {
       created_at,
       comment_count
     } = this.state.article;
-    const { error } = this.state;
+
+    const { error, isLoading } = this.state;
     const { article_id } = this.props;
-    return (
-      <>
-        {error ? (
-          <ErrorMsg status={error.status} msg={error.data.msg} />
-        ) : (
-          <S.Article>
-            <S.ArticleTitle>{title}</S.ArticleTitle>
-            Written by{" "}
-            <S.WrittenByLink to={`/articles/authors/${author}`}>
-              {author}
-            </S.WrittenByLink>{" "}
-            in{" "}
-            <S.TopicLink to={`/articles/topics/${topic}`}>{topic}</S.TopicLink>{" "}
-            on {moment(created_at).format("DD-MM-YYYY")}
-            <S.ArticleBody>{body}</S.ArticleBody>
-            <S.Reactions>
-              <Votes type={"articles"} id={article_id} votes={votes} />
-              <p>✎{comment_count}</p>
-            </S.Reactions>
-            <CommentsByArticle
-              article_id={article_id}
-              userLoggedIn={this.props.userLoggedIn}
-            />
-          </S.Article>
-        )}
-      </>
-    );
+
+    if (error) {
+      return <ErrorMsg status={error.status} msg={error.data.msg} />;
+    } else if (isLoading) {
+      return <p>Loading...</p>;
+    } else {
+      return (
+        <S.Article>
+          <S.ArticleTitle>{title}</S.ArticleTitle>
+          Written by{" "}
+          <S.WrittenByLink to={`/articles/authors/${author}`}>
+            {author}
+          </S.WrittenByLink>{" "}
+          in <S.TopicLink to={`/articles/topics/${topic}`}>{topic}</S.TopicLink>{" "}
+          on {moment(created_at).format("DD-MM-YYYY")}
+          <S.ArticleBody>{body}</S.ArticleBody>
+          <S.Reactions>
+            <Votes type={"articles"} id={article_id} votes={votes} />
+            <p>✎{comment_count}</p>
+          </S.Reactions>
+          <CommentsByArticle
+            article_id={article_id}
+            userLoggedIn={this.props.userLoggedIn}
+          />
+        </S.Article>
+      );
+    }
   }
 }
 

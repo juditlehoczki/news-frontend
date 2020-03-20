@@ -39,9 +39,11 @@ class ArticlesAll extends Component {
 
   render() {
     const { articles, isLoading, error } = this.state;
-    return (
-      <>
-        {isLoading && <p>Loading...</p>}
+
+    if (isLoading) {
+      return <p>Loading...</p>;
+    } else {
+      return (
         <div>
           <Topics />
           <ArticlesSorting
@@ -58,8 +60,8 @@ class ArticlesAll extends Component {
             })}
           </S.ArticlesContainer>
         </div>
-      </>
-    );
+      );
+    }
   }
 }
 
