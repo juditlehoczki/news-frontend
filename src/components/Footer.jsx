@@ -22,7 +22,11 @@ const Footer = () => {
         Developers Pathway
       </a>{" "}
       at{" "}
-      <a href="https://northcoders.com/" target="_blank" rel="noopener">
+      <a
+        href="https://northcoders.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Northcoders
       </a>
       .
