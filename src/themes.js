@@ -1,26 +1,29 @@
-const dark = {
-  fonts: {
-    title: "'Anton', sans-serif",
-    main: "'Montserrat', sans-serif",
-    header1: "'Diplomata', cursive",
-    header2: "'Monoton', cursive;"
+const themes = {
+  light: {
+    fonts: {
+      title: "'Anton', sans-serif",
+      main: "'Montserrat', sans-serif",
+      header1: "'Diplomata', cursive",
+      header2: "'Monoton', cursive;"
+    },
+    colours: {
+      fg: "black",
+      bg: "white",
+      light: "lightgreen",
+      colour: "grey"
+    }
   },
-  colours: {
-    mainFont: "black",
-    bg: "white"
+  dark: {
+    fonts: {
+      title: "'Anton', sans-serif",
+      main: "'Montserrat', sans-serif",
+      header1: "'Diplomata', cursive",
+      header2: "'Monoton', cursive;"
+    },
+    colours: {
+      fg: "white",
+      bg: "black"
+    }
   }
 };
-
-const light = {
-  fonts: {
-    title: "'Anton', sans-serif",
-    main: "'Montserrat', sans-serif",
-    header: "'Monoton', cursive;"
-  },
-  colours: {
-    mainFont: "white",
-    bg: "black"
-  }
-};
-
-export { dark, light };
+export default themes;

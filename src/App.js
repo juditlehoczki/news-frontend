@@ -1,43 +1,47 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import { ThemeProvider } from "styled-components";
-import moment from "moment";
 
 import ArticlesAll from "./components/ArticlesAll";
 import Article from "./components/Article";
 import ErrorMsg from "./components/ErrorMsg";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import S from "./components/StyledComponents";
-import { dark, light } from "./themes";
-import Login from "./components/Login";
+import themes from "./themes";
 
 class App extends Component {
   state = {
-    userLoggedIn: "jessjelly"
+    userLoggedIn: "jessjelly",
+    theme: "light",
+    themeSwitchButton: "🔲"
   };
 
   setUserLoggedIn = username => {
     this.setState({ userLoggedIn: username });
   };
 
+  switchTheme = () => {
+    if (this.state.theme === "dark") {
+      this.setState({ theme: "light", themeSwitchButton: "🔲" });
+    } else {
+      this.setState({ theme: "dark", themeSwitchButton: "🔳" });
+    }
+  };
+
   render() {
-    const { userLoggedIn } = this.state;
+    const { userLoggedIn, themeSwitchButton } = this.state;
+
     return (
-      <ThemeProvider theme={dark}>
+      <ThemeProvider theme={themes[this.state.theme]}>
         <S.AppContainer>
-          <S.HeaderContainer to="/">
-            <S.HeaderTitle>❥The Daily News</S.HeaderTitle>
-            <S.HeaderSubtitle>Brought To You By ▸Press JL</S.HeaderSubtitle>
-          </S.HeaderContainer>
-          <S.HeaderDetails>
-            <span>VOL. I. No. 1.</span>
-            <span>{moment().format("dddd Do MMMM YYYY")}</span>
-            <Login
-              userLoggedIn={userLoggedIn}
-              setUserLoggedIn={this.setUserLoggedIn}
-            />
-          </S.HeaderDetails>
+          <Header
+            userLoggedIn={userLoggedIn}
+            setUserLoggedIn={this.setUserLoggedIn}
+            themeSwitchButton={themeSwitchButton}
+            switchTheme={this.switchTheme}
+          />
           <Router>
             <ArticlesAll path="/" />
             <Article path="/articles/:article_id" userLoggedIn={userLoggedIn} />

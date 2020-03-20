@@ -1,22 +1,38 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "@reach/router";
 
 const S = {};
 
+const simpleBorder = css`
+  border: 1px solid ${props => props.theme.colours.colour};
+  border-radius: 2px;
+`;
+
+const link = css`
+  text-decoration: underline dotted ${props => props.theme.colours.fg};
+  color: ${props => props.theme.colours.colour};
+  &:hover {
+    background: ${props => props.theme.colours.light};
+    border-radius: 5px;
+  }
+`;
+
 S.AppContainer = styled.div`
+  margin: 0px;
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   font-family: ${props => props.theme.fonts.main};
+  background: ${props => props.theme.colours.bg};
 `;
 
 S.HeaderContainer = styled(Link)`
   max-width: content;
   padding: 0px 5px;
   text-decoration: none;
-  color: ${props => props.theme.colours.mainFont};
+  color: ${props => props.theme.colours.fg};
 `;
 
 S.HeaderTitle = styled.h1`
@@ -36,16 +52,16 @@ S.HeaderSubtitle = styled.h2`
 S.HeaderDetails = styled.h2`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid ${props => props.theme.colours.mainFont};
-  border-bottom: 1px solid ${props => props.theme.colours.mainFont};
+  border-top: 1px solid ${props => props.theme.colours.fg};
+  border-bottom: 1px solid ${props => props.theme.colours.fg};
   width: 100%;
   font-size: 0.75em;
-  color: ${props => props.theme.colours.mainFont};
+  color: ${props => props.theme.colours.fg};
   padding: 10px 0px;
 `;
 
 S.TopicsContainer = styled.div`
-  border: 1px solid black;
+  ${simpleBorder}
 `;
 
 S.TopicSlug = styled(Link)`
@@ -53,7 +69,7 @@ S.TopicSlug = styled(Link)`
   display: inline-block;
   padding: 0px 20px;
   text-decoration: none;
-  color: ${props => props.theme.colours.mainFont};
+  color: ${props => props.theme.colours.fg};
 `;
 
 S.TopicDescription = styled.div``;
@@ -64,8 +80,7 @@ S.ArticlesContainer = styled.div`
 `;
 
 S.ArticlePreview = styled.div`
-  border: 1px solid black;
-  border-radius: 2px;
+  ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
   min-width: 330px;
@@ -74,7 +89,7 @@ S.ArticlePreview = styled.div`
 `;
 
 S.ArticlePreviewTitle = styled(Link)`
-  color: ${props => props.theme.colours.mainFont};
+  color: ${props => props.theme.colours.fg};
   text-decoration: none;
   font-size: 1.2em;
   font-family: ${props => props.theme.fonts.title};
@@ -85,33 +100,24 @@ S.ArticlePreviewDetails = styled.div`
 `;
 
 S.WrittenByLink = styled(Link)`
-  text-decoration: underline dotted black;
-  &:hover {
-    background: lightgrey;
-    border-radius: 5px;
-  }
+  ${link}
 `;
 
 S.TopicLink = styled(Link)`
-  text-decoration: underline dotted black;
-  &:hover {
-    background: lightgrey;
-    border-radius: 5px;
-  }
+  ${link}
 `;
 
 S.Reactions = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0px;
-
   > * {
     margin: 0px auto;
   }
 `;
 
 S.Article = styled.div`
-  border: 1px solid black;
+  ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
 `;
@@ -131,13 +137,13 @@ S.ArticleBody = styled.article`
 `;
 
 S.CommentTile = styled.div`
-  border: 1px solid black;
+  ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
 `;
 
 S.CommentPostContainer = styled.div`
-  border: 1px solid black;
+  ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
 `;
@@ -150,10 +156,7 @@ S.CommentPostInput = styled.input`
 S.Footer = styled.div`
   font-size: 0.6em;
   & a {
-    text-decoration: underline dotted black;
-    &:hover {
-      background: lightgrey;
-      border-radius: 5px;
+   ${link}
     }
   }
 `;
