@@ -33,7 +33,9 @@ class Comment extends Component {
             <br />
             {body}
             <Votes type={"comments"} id={comment_id} votes={votes} />
-            <button onClick={this.removeComment}>Delete</button>
+            {this.props.userLoggedIn === author && (
+              <button onClick={this.removeComment}>Delete</button>
+            )}
           </S.CommentTile>
         )}
       </>

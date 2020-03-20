@@ -42,7 +42,13 @@ class CommentsByArticle extends Component {
               addNewComment={this.addNewComment}
             />
             {comments.map(comment => {
-              return <Comment key={comment.comment_id} comment={comment} />;
+              return (
+                <Comment
+                  key={comment.comment_id}
+                  comment={comment}
+                  userLoggedIn={this.props.userLoggedIn}
+                />
+              );
             })}
           </div>
         )}

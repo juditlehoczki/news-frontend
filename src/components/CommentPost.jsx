@@ -21,6 +21,7 @@ class CommentPost extends Component {
     })
       .then(res => {
         this.props.addNewComment(res.data.comment);
+        this.setState({ comment: "" });
       })
       .catch(err => console.log(err));
   };
