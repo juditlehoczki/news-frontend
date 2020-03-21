@@ -1,5 +1,7 @@
 import React from "react";
 
+import S from "./StyledComponents";
+
 const ArticlesSorting = ({ getArticles, topic, author }) => {
   const getArticlesWithQueries = e => {
     const queries = e.target.id.split(" ");
@@ -7,22 +9,14 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
   };
 
   return (
-    <div>
-      <button
-        id="created_at desc"
-        onClick={e => {
-          getArticlesWithQueries(e);
-        }}
-      >
-        The Newest In!
-      </button>
+    <S.NavBarElement>
       <button
         id="votes desc"
         onClick={e => {
           getArticlesWithQueries(e);
         }}
       >
-        Hottest{" "}
+        Hot{" "}
       </button>
       <button
         id="comment_count desc"
@@ -30,9 +24,17 @@ const ArticlesSorting = ({ getArticles, topic, author }) => {
           getArticlesWithQueries(e);
         }}
       >
-        Most Talked About
+        Talked About
       </button>
-    </div>
+      <button
+        id="created_at desc"
+        onClick={e => {
+          getArticlesWithQueries(e);
+        }}
+      >
+        Newest
+      </button>
+    </S.NavBarElement>
   );
 };
 

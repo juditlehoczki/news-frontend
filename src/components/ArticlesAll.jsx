@@ -63,12 +63,14 @@ class ArticlesAll extends Component {
     } else {
       return (
         <div>
-          <Topics />
-          <ArticlesSorting
-            topic={this.props.topic}
-            author={this.props.author}
-            getArticles={this.getArticles}
-          />
+          <S.NavContainer>
+            <Topics />
+            <ArticlesSorting
+              topic={this.props.topic}
+              author={this.props.author}
+              getArticles={this.getArticles}
+            />
+          </S.NavContainer>
           {error && <ErrorMsg status={error.status} msg={error.data.msg} />}
           <S.ArticlesContainer>
             {articles.map(article => {

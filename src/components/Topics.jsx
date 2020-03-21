@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 import { fetchTopics } from "../api";
 
@@ -21,15 +22,16 @@ class Topics extends Component {
 
   render() {
     return (
-      <S.TopicsContainer>
+      <S.NavBarElement>
         {this.state.topics.map(topic => {
+          const slug = topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1);
           return (
-            <S.TopicSlug key={topic.slug} to={`/articles/topics/${topic.slug}`}>
-              {topic.slug}
-            </S.TopicSlug>
+            <Link key={slug} to={`/articles/topics/${slug}`}>
+              <button>{slug}</button>
+            </Link>
           );
         })}
-      </S.TopicsContainer>
+      </S.NavBarElement>
     );
   }
 }

@@ -13,22 +13,24 @@ const Header = props => {
     switchTheme
   } = props;
   return (
-    <div>
-      <S.HeaderContainer to="/">
-        <S.HeaderTitle>❥The Daily News</S.HeaderTitle>
-        <S.HeaderSubtitle>Brought To You By ▸ Press JL</S.HeaderSubtitle>
-      </S.HeaderContainer>
-      <S.HeaderDetails>
+    <>
+      <S.Header to="/">
+        <h1>❥The Daily News</h1>
+        <h2>Brought To You By ▸ Press JL</h2>
+      </S.Header>
+      <S.SubHeader>
         <span>
           Light Switch
           <br />
-          <button onClick={switchTheme}>{themeSwitchButton}</button>
+          <button className="switch" onClick={switchTheme}>
+            {themeSwitchButton}
+          </button>
         </span>
         <span>VOL. I. No. 1.</span>
         <span>{moment().format("dddd Do MMMM YYYY")}</span>
         <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
-      </S.HeaderDetails>
-    </div>
+      </S.SubHeader>
+    </>
   );
 };
 

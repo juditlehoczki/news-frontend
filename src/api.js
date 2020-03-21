@@ -32,6 +32,10 @@ const deleteComment = id => {
   return axios.delete(`${baseUrl}/comments/${id}/`);
 };
 
+const fetchUserInfo = username => {
+  return axios.get(`${baseUrl}/users/${username}/`);
+};
+
 export {
   fetchArticles,
   fetchArticleById,
@@ -39,5 +43,6 @@ export {
   fetchTopics,
   patchVote,
   postComment,
-  deleteComment
+  deleteComment,
+  fetchUserInfo
 };

@@ -5,15 +5,36 @@ const S = {};
 
 const simpleBorder = css`
   border: 1px solid ${props => props.theme.colours.colour};
-  border-radius: 2px;
+  border-radius: 3px;
 `;
 
 const link = css`
+  font-size: 1em;
+  font-family: inherit;
   text-decoration: underline dotted ${props => props.theme.colours.fg};
-  color: ${props => props.theme.colours.colour};
+  color: ${props => props.theme.colours.fg};
   &:hover {
-    background: ${props => props.theme.colours.light};
-    border-radius: 5px;
+    background: ${props => props.theme.colours.fg};
+    color: ${props => props.theme.colours.bg};
+  }
+`;
+
+const button = css`
+  background-color: ${props => props.theme.colours.fg};
+  border: none;
+  border-radius: 3px;
+  color: ${props => props.theme.colours.bg};
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.theme.colours.bg};
+    color: ${props => props.theme.colours.fg};
   }
 `;
 
@@ -28,28 +49,29 @@ S.AppContainer = styled.div`
   background: ${props => props.theme.colours.bg};
 `;
 
-S.HeaderContainer = styled(Link)`
+S.Header = styled(Link)`
   max-width: content;
   padding: 0px 5px;
   text-decoration: none;
   color: ${props => props.theme.colours.fg};
+  h1 {
+    font-size: 3em;
+    font-family: ${props => props.theme.fonts.header1};
+    margin: 0px;
+    @media (max-width: 370) {
+      font-size: 0.5em;
+    }
+  }
+  h2 {
+    font-family: ${props => props.theme.fonts.header2};
+    font-size: 0.7em;
+    line-height: 0.1;
+    text-align: right;
+    margin: 0px;
+  }
 `;
 
-S.HeaderTitle = styled.h1`
-  font-size: 3em;
-  font-family: ${props => props.theme.fonts.header1};
-  margin: 0px;
-`;
-
-S.HeaderSubtitle = styled.h2`
-  font-family: ${props => props.theme.fonts.header2};
-  font-size: 0.7em;
-  line-height: 0.1;
-  text-align: right;
-  margin: 0px;
-`;
-
-S.HeaderDetails = styled.h2`
+S.SubHeader = styled.h2`
   display: flex;
   justify-content: space-between;
   border-top: 1px solid ${props => props.theme.colours.fg};
@@ -58,25 +80,38 @@ S.HeaderDetails = styled.h2`
   font-size: 0.75em;
   color: ${props => props.theme.colours.fg};
   padding: 10px 0px;
+  .switch {
+    background-color: ${props => props.theme.colours.bg};
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+  }
 `;
 
-S.TopicsContainer = styled.div`
-  ${simpleBorder}
+S.NavContainer = styled.nav`
+  display: flex;
+  justify-content: space-evenly;
 `;
 
-S.TopicSlug = styled(Link)`
-  position: relative;
-  display: inline-block;
-  padding: 0px 20px;
-  text-decoration: none;
-  color: ${props => props.theme.colours.fg};
+S.NavBarElement = styled.span`
+  button {
+    ${button}
+  }
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: ${props => props.theme.colours.fg};
+    & button {
+      ${button}
+    }
+  }
 `;
-
-S.TopicDescription = styled.div``;
 
 S.ArticlesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  color: ${props => props.theme.colours.fg};
 `;
 
 S.ArticlePreview = styled.div`
@@ -85,18 +120,28 @@ S.ArticlePreview = styled.div`
   padding: 5px;
   min-width: 330px;
   width: 48%;
+  text-align: center;
+  align-items: center;
   background: ${props => props.theme.colours.bg};
-`;
-
-S.ArticlePreviewTitle = styled(Link)`
-  color: ${props => props.theme.colours.fg};
-  text-decoration: none;
-  font-size: 1.2em;
-  font-family: ${props => props.theme.fonts.title};
-`;
-
-S.ArticlePreviewDetails = styled.div`
-  font-size: 0.8em;
+  display: grid;
+  grid-template-areas: "reactions detail detail detail detail detail detail detail detail detail";
+  .title {
+    grid-area: title;
+    color: ${props => props.theme.colours.fg};
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: ${props => props.theme.fonts.title};
+  }
+  .reactions {
+    grid-area: reactions;
+    margin: 0px;
+    text-align: center;
+    width: 40px;
+  }
+  div {
+    grid-area: detail;
+    font-size: 0.8em;
+  }
 `;
 
 S.WrittenByLink = styled(Link)`
@@ -105,15 +150,6 @@ S.WrittenByLink = styled(Link)`
 
 S.TopicLink = styled(Link)`
   ${link}
-`;
-
-S.Reactions = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin: 20px 0px;
-  > * {
-    margin: 0px auto;
-  }
 `;
 
 S.Article = styled.div`
