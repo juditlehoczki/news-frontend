@@ -1,8 +1,10 @@
 import React from "react";
 
+import S from "./StyledComponents";
+
 const Pagination = props => {
   return (
-    <div>
+    <S.Pagination>
       <button
         disabled={props.p === 1}
         onClick={() => {
@@ -20,7 +22,7 @@ const Pagination = props => {
       >
         {">"}
       </button>
-    </div>
+    </S.Pagination>
   );
 };
 

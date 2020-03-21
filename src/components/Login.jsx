@@ -23,14 +23,14 @@ class Login extends Component {
     const { userLoggedIn } = this.props;
     if (userLoggedIn) {
       return (
-        <div>
-          Logged In: {userLoggedIn} <br />
+        <span>
+          Welcome {userLoggedIn}.<br />
           <button onClick={this.logOut}>(Not You?)</button>
-        </div>
+        </span>
       );
     } else {
       return (
-        <div>
+        <span>
           <form onSubmit={this.logIn}>
             <label>
               <input
@@ -42,7 +42,7 @@ class Login extends Component {
               <button>Log In</button>
             </label>
           </form>
-        </div>
+        </span>
       );
     }
   }

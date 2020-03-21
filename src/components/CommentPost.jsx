@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 import S from "./StyledComponents";
 import { postComment } from "../api";
+import ErrorMsg from "./ErrorMsg";
 
 class CommentPost extends Component {
   state = {
-    comment: ""
+    comment: "",
+    error: null
   };
 
   handleChange = e => {
@@ -23,11 +25,14 @@ class CommentPost extends Component {
         this.props.addNewComment(res.data.comment);
         this.setState({ comment: "" });
       })
-      .catch(err => console.log(err));
+      .catch(error => {
+        this.setState({ error: error.response });
+      });
   };
 
   render() {
     const { userLoggedIn } = this.props;
+    const { error } = this.state;
 
     if (userLoggedIn) {
       return (
@@ -35,14 +40,23 @@ class CommentPost extends Component {
           Logged in as {userLoggedIn}.
           <form onSubmit={this.handleSubmit}>
             <label>
-              <S.CommentPostInput
+              <textarea
                 onChange={this.handleChange}
                 value={this.state.comment}
                 type="text"
                 placeholder="Leave a comment..."
-              ></S.CommentPostInput>
+                required
+                rows="5"
+              ></textarea>
             </label>
+            <br />
             <button>Send</button>
+            {error && (
+              <ErrorMsg
+                status={error.status}
+                msg="You are not a registered user"
+              />
+            )}
           </form>
         </S.CommentPostContainer>
       );

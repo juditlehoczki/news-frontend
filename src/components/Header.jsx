@@ -15,10 +15,6 @@ const Header = props => {
   return (
     <>
       <S.Header to="/">
-        <h1>❥The Daily News</h1>
-        <h2>Brought To You By ▸ Press JL</h2>
-      </S.Header>
-      <S.SubHeader>
         <span>
           Light Switch
           <br />
@@ -26,6 +22,10 @@ const Header = props => {
             {themeSwitchButton}
           </button>
         </span>
+        <h1>❥The Daily News</h1>
+        <h2>Brought To You By ▸ Press JL</h2>
+      </S.Header>
+      <S.SubHeader>
         <span>VOL. I. No. 1.</span>
         <span>{moment().format("dddd Do MMMM YYYY")}</span>
         <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />

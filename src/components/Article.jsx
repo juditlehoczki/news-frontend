@@ -50,18 +50,18 @@ class Article extends Component {
     } else {
       return (
         <S.Article>
-          <S.ArticleTitle>{title}</S.ArticleTitle>
+          <h1>{title}</h1>
           Written by{" "}
           <S.WrittenByLink to={`/articles/authors/${author}`}>
             {author}
           </S.WrittenByLink>{" "}
           in <S.TopicLink to={`/articles/topics/${topic}`}>{topic}</S.TopicLink>{" "}
           on {moment(created_at).format("DD-MM-YYYY")}
-          <S.ArticleBody>{body}</S.ArticleBody>
-          <S.Reactions>
+          <article>{body}</article>
+          <div>
             <Votes type={"articles"} id={article_id} votes={votes} />
-            <p>✎{comment_count}</p>
-          </S.Reactions>
+            <p>✎ {comment_count}</p>
+          </div>
           <CommentsByArticle
             article_id={article_id}
             userLoggedIn={this.props.userLoggedIn}

@@ -29,7 +29,7 @@ class Votes extends Component {
     const { votes } = this.props;
     const { voteChange, error } = this.state;
     return (
-      <div>
+      <span>
         {error && <p>Oops, something's gone wrong...</p>}
         <button
           disabled={voteChange === 1}
@@ -38,8 +38,8 @@ class Votes extends Component {
           }}
         >
           ↑
-        </button>
-        {votes + voteChange}
+        </button>{" "}
+        {votes + voteChange}{" "}
         <button
           disabled={voteChange === -1}
           onClick={() => {
@@ -48,7 +48,7 @@ class Votes extends Component {
         >
           ↓
         </button>
-      </div>
+      </span>
     );
   }
 }

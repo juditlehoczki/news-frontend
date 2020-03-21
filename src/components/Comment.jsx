@@ -26,17 +26,22 @@ class Comment extends Component {
     } else {
       return (
         <S.CommentTile>
-          Written by{" "}
-          <S.WrittenByLink to={`/articles/authors/${author}`}>
-            {author}
-          </S.WrittenByLink>{" "}
-          on {moment(created_at).format("DD-MM-YYYY")}
-          <br />
-          {body}
-          <Votes type={"comments"} id={comment_id} votes={votes} />
-          {this.props.userLoggedIn === author && (
-            <button onClick={this.removeComment}>Delete</button>
-          )}
+          <div>
+            By{" "}
+            <S.WrittenByLink to={`/articles/authors/${author}`}>
+              {author}
+            </S.WrittenByLink>{" "}
+            on {moment(created_at).format("DD-MM-YYYY")}
+          </div>
+          <p>{body}</p>
+          <div>
+            <Votes type={"comments"} id={comment_id} votes={votes} />
+            {this.props.userLoggedIn === author && (
+              <button className="deleteButton" onClick={this.removeComment}>
+                Delete
+              </button>
+            )}
+          </div>
         </S.CommentTile>
       );
     }

@@ -30,8 +30,8 @@ const ArticlePreview = props => {
         on {moment(created_at).format("DD-MM-YYYY")}
       </div>
       <div className="reactions">
-        <p>❤︎{votes}</p>
-        <p>✎{comment_count}</p>
+        <p>❤︎ {votes}</p>
+        <p>✎ {comment_count}</p>
       </div>
     </S.ArticlePreview>
   );

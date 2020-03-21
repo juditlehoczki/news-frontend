@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const S = {};
 
 const simpleBorder = css`
-  border: 1px solid ${props => props.theme.colours.colour};
+  border: 1px solid ${props => props.theme.colours.fg};
   border-radius: 3px;
 `;
 
@@ -20,22 +20,27 @@ const link = css`
 `;
 
 const button = css`
-  background-color: ${props => props.theme.colours.fg};
-  border: none;
-  border-radius: 3px;
-  color: ${props => props.theme.colours.bg};
-  padding: 5px 20px;
+${simpleBorder}
+  background-color: ${props => props.theme.colours.bg};
+  color: ${props => props.theme.colours.fg};
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1em;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
   &:hover {
-    background-color: ${props => props.theme.colours.bg};
-    color: ${props => props.theme.colours.fg};
+    background-color: ${props => props.theme.colours.fg};
+    color: ${props => props.theme.colours.bg};
   }
+`;
+
+const disabledButton = css`
+  background: lightgrey;
+  border: 1px solid lightgrey;
+  color: white;
+  cursor: not-allowed;
 `;
 
 S.AppContainer = styled.div`
@@ -55,12 +60,9 @@ S.Header = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.colours.fg};
   h1 {
-    font-size: 3em;
+    font-size: 3.3em;
     font-family: ${props => props.theme.fonts.header1};
     margin: 0px;
-    @media (max-width: 370) {
-      font-size: 0.5em;
-    }
   }
   h2 {
     font-family: ${props => props.theme.fonts.header2};
@@ -69,22 +71,59 @@ S.Header = styled(Link)`
     text-align: right;
     margin: 0px;
   }
+  .switch {
+    background-color: ${props => props.theme.colours.bg};
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  @media (max-width: 825px) {
+    h1 {
+      font-size: 2.5em;
+    }
+    h2 {
+      font-size: 0.5em;
+    }
+  }
+  @media (max-width: 420px) {
+    h1 {
+      font-size: 1.3em;
+    }
+    h2 {
+      font-size: 0.3em;
+    }
+  }
 `;
 
 S.SubHeader = styled.h2`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid ${props => props.theme.colours.fg};
-  border-bottom: 1px solid ${props => props.theme.colours.fg};
+  align-items: center;
+  border-top: 3px solid ${props => props.theme.colours.fg};
+  border-bottom: 3px solid ${props => props.theme.colours.fg};
   width: 100%;
-  font-size: 0.75em;
+  font-size: 1em;
   color: ${props => props.theme.colours.fg};
-  padding: 10px 0px;
-  .switch {
-    background-color: ${props => props.theme.colours.bg};
+  padding: 5px 0px;
+  span {
+    padding: 0px 10px;
+    align-items: center;
+  }
+  button {
     border: none;
-    font-size: 2em;
     cursor: pointer;
+    background-color: ${props => props.theme.colours.bg};
+    color: ${props => props.theme.colours.fg};
+    text-decoration: underline dotted ${props => props.theme.colours.fg};
+  }
+  input {
+    ${simpleBorder}
+  }
+  @media (max-width: 825px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 420px) {
+    font-size: 0.6em;
   }
 `;
 
@@ -94,8 +133,10 @@ S.NavContainer = styled.nav`
 `;
 
 S.NavBarElement = styled.span`
+  width: 50%;
   button {
     ${button}
+    padding: 5px 20px;
   }
   a {
     position: relative;
@@ -104,6 +145,23 @@ S.NavBarElement = styled.span`
     color: ${props => props.theme.colours.fg};
     & button {
       ${button}
+      padding: 5px 20px;
+    }
+  }
+  @media (max-width: 825px) {
+    font-size: 1em;
+  }
+  @media (max-width: 420px) {
+    font-size: 0.8em;
+    button {
+      padding: 2px 2px;
+      margin: 2px;
+    }
+    a {
+      button {
+        padding: 2px 2px;
+        margin: 2px;
+      }
     }
   }
 `;
@@ -154,43 +212,84 @@ S.TopicLink = styled(Link)`
 
 S.Article = styled.div`
   ${simpleBorder}
-  margin: 5px auto;
+  margin: 5px 10px;
   padding: 5px;
-`;
-
-S.ArticleTitle = styled.h1`
-  font-size: 1.5em;
-  font-family: ${props => props.theme.fonts.title};
-`;
-
-S.ArticleBody = styled.article`
-  text-align: justify;
-  text-indent: 3%;
-  padding: 0px 10px;
-  margin: 20px 0px;
-  font-size: 1em;
-  line-height: 1.5;
+  color: ${props => props.theme.colours.fg};
+  h1 {
+    font-size: 1.5em;
+    font-family: ${props => props.theme.fonts.title};
+  }
+  article {
+    text-align: justify;
+    text-indent: 3%;
+    padding: 0px 10px;
+    margin: 20px 0px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  button {
+    ${button}
+    &:disabled {
+      ${disabledButton}}
+    }
+  }
 `;
 
 S.CommentTile = styled.div`
   ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
+  p {
+    text-align: justify;
+    text-indent: 3%;
+    margin: 5px auto;
+    padding: 0px 10px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  div {
+    text-align: left;
+  }
+  button {
+    ${button}
+    &:disabled {
+      ${disabledButton}}
+    }
+  }
+  .deleteButton {
+    ${button}
+    &: hover {
+      background-color: red;
+      color: ${props => props.theme.colours.fg};
+    }
+  }
 `;
 
 S.CommentPostContainer = styled.div`
   ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
+  textarea {
+    ${simpleBorder}
+    width: 80%;
+    font-size: 1em;
+  }
 `;
 
-S.CommentPostInput = styled.input`
-  width: 80%;
-  height: 10em;
+S.Pagination = styled.div`
+  color: ${props => props.theme.colours.fg};
+  button {
+    ${button}
+    &:disabled {
+      ${disabledButton}}
+    }
+  }
 `;
 
 S.Footer = styled.div`
   font-size: 0.6em;
+  color: ${props => props.theme.colours.fg};
+  padding: 20px;
   & a {
    ${link}
     }

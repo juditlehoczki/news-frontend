@@ -26,7 +26,7 @@ class Topics extends Component {
         {this.state.topics.map(topic => {
           const slug = topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1);
           return (
-            <Link key={slug} to={`/articles/topics/${slug}`}>
+            <Link key={slug} to={`/articles/topics/${slug.toLowerCase()}`}>
               <button>{slug}</button>
             </Link>
           );
