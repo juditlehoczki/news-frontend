@@ -1,6 +1,7 @@
 # Press-JL
 
-A Reddit-like news website. Frontend to my previously built [news API](https://github.com/juditlehoczki/news-backend).
+A Reddit-like news site for articles by topics and by authors with the belonging comments and optional voting.
+Frontend to my previously built [news API](https://github.com/juditlehoczki/news-backend).
 
 The site is live at [https://press-jl.netlify.com/](https://press-jl.netlify.com/).
 
