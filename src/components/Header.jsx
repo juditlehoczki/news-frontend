@@ -15,18 +15,15 @@ const Header = props => {
   return (
     <>
       <S.Header to="/">
-        <span>
-          Light Switch
-          <br />
-          <button className="switch" onClick={switchTheme}>
-            {themeSwitchButton}
-          </button>
-        </span>
         <h1>❥The Daily News</h1>
         <h2>Brought To You By ▸ Press JL</h2>
       </S.Header>
       <S.SubHeader>
-        <span>VOL. I. No. 1.</span>
+        <span>
+          <button className="switch" onClick={switchTheme}>
+            <img src={themeSwitchButton} alt="light switch" height="25" />
+          </button>{" "}
+        </span>
         <span>{moment().format("dddd Do MMMM YYYY")}</span>
         <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
       </S.SubHeader>

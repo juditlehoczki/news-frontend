@@ -56,7 +56,7 @@ S.AppContainer = styled.div`
 
 S.Header = styled(Link)`
   max-width: content;
-  padding: 0px 5px;
+  padding: 5px 5px;
   text-decoration: none;
   color: ${props => props.theme.colours.fg};
   h1 {
@@ -70,12 +70,6 @@ S.Header = styled(Link)`
     line-height: 0.1;
     text-align: right;
     margin: 0px;
-  }
-  .switch {
-    background-color: ${props => props.theme.colours.bg};
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
   }
   @media (max-width: 825px) {
     h1 {
@@ -107,7 +101,7 @@ S.SubHeader = styled.h2`
   padding: 5px 0px;
   span {
     padding: 0px 10px;
-    align-items: center;
+    vertical-align: top;
   }
   button {
     border: none;
@@ -124,6 +118,14 @@ S.SubHeader = styled.h2`
   }
   @media (max-width: 420px) {
     font-size: 0.6em;
+  }
+  .switch {
+    background-color: white;
+    border: 3px black solid;
+    border-radius: 50%;
+    padding: 5px 12px;
+    cursor: pointer;
+    display: inline-block;
   }
 `;
 
@@ -182,12 +184,12 @@ S.ArticlePreview = styled.div`
   align-items: center;
   background: ${props => props.theme.colours.bg};
   display: grid;
-  grid-template-areas: "reactions detail detail detail detail detail detail detail detail detail";
+  grid-template-areas: "reactions detail detail detail detail detail detail detail";
   .title {
     grid-area: title;
     color: ${props => props.theme.colours.fg};
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.8em;
     font-family: ${props => props.theme.fonts.title};
   }
   .reactions {

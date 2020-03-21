@@ -10,12 +10,19 @@ import Footer from "./components/Footer";
 
 import S from "./components/StyledComponents";
 import themes from "./themes";
+import off from "./lightSwitchOff.png";
+import on from "./lightSwitchOn.png";
+
+const switches = {
+  on,
+  off
+};
 
 class App extends Component {
   state = {
     userLoggedIn: "jessjelly",
     theme: "light",
-    themeSwitchButton: "🔲"
+    themeSwitchButton: switches.on
   };
 
   setUserLoggedIn = username => {
@@ -24,9 +31,9 @@ class App extends Component {
 
   switchTheme = () => {
     if (this.state.theme === "dark") {
-      this.setState({ theme: "light", themeSwitchButton: "🔲" });
+      this.setState({ theme: "light", themeSwitchButton: switches.on });
     } else {
-      this.setState({ theme: "dark", themeSwitchButton: "🔳" });
+      this.setState({ theme: "dark", themeSwitchButton: switches.off });
     }
   };
 
