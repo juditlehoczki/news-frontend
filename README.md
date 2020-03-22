@@ -1,4 +1,4 @@
-# Press-JL
+# Press-JL (Frontend)
 
 A Reddit-like news site for articles by topics and by authors with the belonging comments and optional voting.
 Frontend to my previously built [news API](https://github.com/juditlehoczki/news-backend).
