@@ -56,7 +56,7 @@ class App extends Component {
             <Article path="/articles/:article_id" userLoggedIn={userLoggedIn} />
             <ArticlesAll path="/articles/topics/:topic" />
             <ArticlesAll path="/articles/authors/:author" />
-            <ArticlePost path="/articles/new" />
+            <ArticlePost path="/articles/new" userLoggedIn={userLoggedIn} />
             <ErrorMsg status="404" msg="Page Not Found" default />
           </Router>
           <Footer />

@@ -37,17 +37,18 @@ ${simpleBorder}
 `;
 
 const disabledButton = css`
-  background: lightgrey;
-  border: 1px solid lightgrey;
-  color: white;
+  background: #cdc0b0;
+  border: 1px solid #cdc0b0;
+  color: #eedfcc;
   cursor: not-allowed;
 `;
 
 S.AppContainer = styled.main`
   min-height: 100vh;
+  width: 100%
   margin: 0px;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -121,7 +122,7 @@ S.SubHeader = styled.h2`
     font-size: 0.6em;
   }
   .switch {
-    background-color: white;
+    background-color: #eedfcc;
     border: 3px black solid;
     border-radius: 50%;
     padding: 5px 12px;
@@ -238,6 +239,21 @@ S.Article = styled.div`
   }
 `;
 
+S.ArticlePostContainer = styled.div`
+  ${simpleBorder}
+  margin: 5px auto;
+  padding: 5px;
+  width: 80%;
+  textarea,
+  select {
+    ${simpleBorder}
+    font-size: 1em;
+  }
+  button {
+    ${button}
+  }
+`;
+
 S.CommentTile = styled.div`
   ${simpleBorder}
   margin: 5px auto;
@@ -262,7 +278,7 @@ S.CommentTile = styled.div`
   .deleteButton {
     ${button}
     &: hover {
-      background-color: red;
+      background-color: ${props => props.theme.colours.red};
       color: ${props => props.theme.colours.fg};
     }
   }
@@ -272,6 +288,7 @@ S.CommentPostContainer = styled.div`
   ${simpleBorder}
   margin: 5px auto;
   padding: 5px;
+  width: 100vv;
   textarea {
     ${simpleBorder}
     width: 80%;

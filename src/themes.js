@@ -8,7 +8,8 @@ const themes = {
     },
     colours: {
       fg: "#141312",
-      bg: "white"
+      bg: "#EEDFCC",
+      red: "#8B2323"
     }
   },
   dark: {
@@ -19,8 +20,9 @@ const themes = {
       header2: "'Monoton', cursive;"
     },
     colours: {
-      fg: "white",
-      bg: "#141312"
+      fg: "#EEDFCC",
+      bg: "#141312",
+      red: "#8B2323"
     }
   }
 };

@@ -19,14 +19,8 @@ class Comment extends Component {
   };
 
   render() {
-    const {
-      body,
-      votes,
-      created_at,
-      author,
-      comment_id,
-      userLoggedIn
-    } = this.props.comment;
+    const { body, votes, created_at, author, comment_id } = this.props.comment;
+    const { userLoggedIn } = this.props;
     const { msg } = this.state;
 
     if (msg) {
