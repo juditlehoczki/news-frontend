@@ -6,8 +6,8 @@ The site is live at [https://press-jl.netlify.com/](https://press-jl.netlify.com
 
 The API used is hosted on [https://press-jl.herokuapp.com/api](https://press-jl.herokuapp.com/) and you can read more about the backend in [this repository](https://github.com/juditlehoczki/news-backend).
 
-<img src="./show-light.png" width="500">
-<img src="./show-dark.png" width="500">
+![show-light](./public/show-light.png)
+![show-dark](./public/show-dark.png)
 
 ## Install
 
