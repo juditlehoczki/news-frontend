@@ -1,11 +1,13 @@
-# Press-JL (Frontend)
+# Press-JL
 
-A Reddit-like news site for articles by topics and by authors with the belonging comments and optional voting.
-Frontend to my previously built [news API](https://github.com/juditlehoczki/news-backend).
+A Reddit-like news website with two switchable themes. Frontend to my previously built [news API](https://github.com/juditlehoczki/news-backend).
 
 The site is live at [https://press-jl.netlify.com/](https://press-jl.netlify.com/).
 
 The API used is hosted on [https://press-jl.herokuapp.com/api](https://press-jl.herokuapp.com/) and you can read more about the backend in [this repository](https://github.com/juditlehoczki/news-backend).
+
+<img src="./show-light.png" width="500">
+<img src="./show-dark.png" width="500">
 
 ## Install
 
@@ -24,3 +26,10 @@ To run this locally please follow the below steps:
 - [React](https://reactjs.org/)
 - [Reach Router](https://reach.tech/router)
 - [Styled-Components](https://www.styled-components.com/)
+
+## Author
+
+Judit Lehoczki
+
+- [GitHub](https://github.com/juditlehoczki)
+- [LinkedIn](https://www.linkedin.com/in/juditlehoczki/)

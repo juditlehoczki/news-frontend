@@ -44,7 +44,6 @@ const disabledButton = css`
 `;
 
 S.AppContainer = styled.div`
-  height: 100vh;
   margin: 0px;
   text-align: center;
   justify-content: center;
