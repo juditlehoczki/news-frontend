@@ -10,8 +10,10 @@ class Login extends Component {
   };
 
   logIn = e => {
+    const { username } = this.state;
+    const { setUserLoggedIn } = this.props;
     e.preventDefault();
-    this.props.setUserLoggedIn(this.state.username);
+    setUserLoggedIn(username);
     this.setState({ username: "" });
   };
 
@@ -20,6 +22,7 @@ class Login extends Component {
   };
 
   render() {
+    const { username } = this.state;
     const { userLoggedIn } = this.props;
     if (userLoggedIn) {
       return (
@@ -35,7 +38,7 @@ class Login extends Component {
             <label>
               <input
                 type="text"
-                value={this.state.username}
+                value={username}
                 onChange={this.handleChange}
               />
               <br />

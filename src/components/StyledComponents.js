@@ -43,7 +43,7 @@ const disabledButton = css`
   cursor: not-allowed;
 `;
 
-S.AppContainer = styled.div`
+S.AppContainer = styled.main`
   min-height: 100vh;
   margin: 0px;
   text-align: center;

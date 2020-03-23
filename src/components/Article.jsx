@@ -26,7 +26,8 @@ class Article extends Component {
   };
 
   componentDidMount() {
-    this.fetchArticle(this.props.article_id);
+    const { article_id } = this.props;
+    this.fetchArticle(article_id);
   }
 
   render() {
@@ -41,7 +42,7 @@ class Article extends Component {
     } = this.state.article;
 
     const { error, isLoading } = this.state;
-    const { article_id } = this.props;
+    const { article_id, userLoggedIn } = this.props;
 
     if (error) {
       return <ErrorMsg status={error.status} msg={error.data.msg} />;
@@ -64,7 +65,7 @@ class Article extends Component {
           </div>
           <CommentsByArticle
             article_id={article_id}
-            userLoggedIn={this.props.userLoggedIn}
+            userLoggedIn={userLoggedIn}
             comment_count={comment_count}
           />
         </S.Article>

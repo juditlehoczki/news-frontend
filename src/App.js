@@ -7,6 +7,7 @@ import Article from "./components/Article";
 import ErrorMsg from "./components/ErrorMsg";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ArticlePost from "./components/ArticlePost";
 
 import S from "./components/StyledComponents";
 import themes from "./themes";
@@ -30,7 +31,8 @@ class App extends Component {
   };
 
   switchTheme = () => {
-    if (this.state.theme === "dark") {
+    const { theme } = this.state;
+    if (theme === "dark") {
       this.setState({ theme: "light", themeSwitchButton: switches.on });
     } else {
       this.setState({ theme: "dark", themeSwitchButton: switches.off });
@@ -38,10 +40,10 @@ class App extends Component {
   };
 
   render() {
-    const { userLoggedIn, themeSwitchButton } = this.state;
+    const { userLoggedIn, themeSwitchButton, theme } = this.state;
 
     return (
-      <ThemeProvider theme={themes[this.state.theme]}>
+      <ThemeProvider theme={themes[theme]}>
         <S.AppContainer>
           <Header
             userLoggedIn={userLoggedIn}
@@ -54,6 +56,7 @@ class App extends Component {
             <Article path="/articles/:article_id" userLoggedIn={userLoggedIn} />
             <ArticlesAll path="/articles/topics/:topic" />
             <ArticlesAll path="/articles/authors/:author" />
+            <ArticlePost path="/articles/new" />
             <ErrorMsg status="404" msg="Page Not Found" default />
           </Router>
           <Footer />

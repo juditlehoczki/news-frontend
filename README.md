@@ -19,6 +19,10 @@ To run this locally please follow the below steps:
 - Start the App with `npm start`
 - Open up `localhost:3000` in your browser
 
+## Tests
+
+- Web Accessibility Tested with [Axe](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd)
+
 ## Built With
 
 - [Node JS](https://nodejs.org/en/)

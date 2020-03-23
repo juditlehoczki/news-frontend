@@ -8,7 +8,8 @@ class Votes extends Component {
   };
 
   updateVote = num => {
-    patchVote(this.props.type, this.props.id, num).catch(error => {
+    const { type, id } = this.props;
+    patchVote(type, id, num).catch(error => {
       this.setState(currentState => {
         return {
           voteChange: currentState.voteChange - num,

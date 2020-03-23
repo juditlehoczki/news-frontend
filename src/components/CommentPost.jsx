@@ -15,14 +15,15 @@ class CommentPost extends Component {
   };
 
   handleSubmit = e => {
-    const { article_id, userLoggedIn } = this.props;
+    const { article_id, userLoggedIn, addNewComment } = this.props;
+    const { comment } = this.state;
     e.preventDefault();
     postComment(article_id, {
       username: userLoggedIn,
-      body: this.state.comment
+      body: comment
     })
       .then(res => {
-        this.props.addNewComment(res.data.comment);
+        addNewComment(res.data.comment);
         this.setState({ comment: "" });
       })
       .catch(error => {
@@ -32,7 +33,7 @@ class CommentPost extends Component {
 
   render() {
     const { userLoggedIn } = this.props;
-    const { error } = this.state;
+    const { error, comment } = this.state;
 
     if (userLoggedIn) {
       return (
@@ -42,7 +43,7 @@ class CommentPost extends Component {
             <label>
               <textarea
                 onChange={this.handleChange}
-                value={this.state.comment}
+                value={comment}
                 type="text"
                 placeholder="Leave a comment..."
                 required

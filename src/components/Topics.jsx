@@ -21,9 +21,10 @@ class Topics extends Component {
   }
 
   render() {
+    const { topics } = this.state;
     return (
       <S.NavBarElement>
-        {this.state.topics.map(topic => {
+        {topics.map(topic => {
           const slug = topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1);
           return (
             <Link key={slug} to={`/articles/topics/${slug.toLowerCase()}`}>

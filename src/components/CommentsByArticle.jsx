@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import { fetchCommentsByArticleId } from "../api";
 import Comment from "./Comment";
 import CommentPost from "./CommentPost";
+import ErrorMsg from "./ErrorMsg";
 import Pagination from "./Pagination";
 
 class CommentsByArticle extends Component {
   state = {
     comments: [],
     isLoading: true,
+    error: null,
     p: 1
   };
 
@@ -19,14 +21,18 @@ class CommentsByArticle extends Component {
   };
 
   fetchComments = props => {
-    fetchCommentsByArticleId(this.props.article_id, { p: this.state.p })
+    const { p } = this.state;
+    const { article_id } = this.props;
+    fetchCommentsByArticleId(article_id, { p })
       .then(({ data }) => {
         this.setState({
           comments: data.comments,
           isLoading: false
         });
       })
-      .catch(console.dir);
+      .catch(error => {
+        this.setState({ error: error.response, isLoading: false });
+      });
   };
 
   componentDidMount() {
@@ -34,7 +40,8 @@ class CommentsByArticle extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.p !== this.state.p) {
+    const { p } = this.state;
+    if (prevState.p !== p) {
       this.fetchComments();
     }
   }
@@ -46,8 +53,8 @@ class CommentsByArticle extends Component {
   };
 
   render() {
-    const { comments, isLoading, p } = this.state;
-    const { comment_count } = this.props;
+    const { comments, isLoading, error, p } = this.state;
+    const { comment_count, article_id, userLoggedIn } = this.props;
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -55,16 +62,17 @@ class CommentsByArticle extends Component {
       return (
         <div>
           <CommentPost
-            article_id={this.props.article_id}
-            userLoggedIn={this.props.userLoggedIn}
+            article_id={article_id}
+            userLoggedIn={userLoggedIn}
             addNewComment={this.addNewComment}
           />
+          {error && <ErrorMsg status={error.status} msg={error.data.msg} />}
           {comments.map(comment => {
             return (
               <Comment
                 key={comment.comment_id}
                 comment={comment}
-                userLoggedIn={this.props.userLoggedIn}
+                userLoggedIn={userLoggedIn}
               />
             );
           })}

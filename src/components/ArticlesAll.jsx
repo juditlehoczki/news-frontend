@@ -41,10 +41,10 @@ class ArticlesAll extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { topic, author } = this.props;
     const { p } = this.state;
-    if (prevProps.topic !== this.props.topic) {
+    if (prevProps.topic !== topic) {
       this.getArticles({ topic });
     }
-    if (prevState.p !== this.state.p) {
+    if (prevState.p !== p) {
       this.getArticles({ topic, author, p });
     }
   }
@@ -57,6 +57,7 @@ class ArticlesAll extends Component {
 
   render() {
     const { articles, isLoading, error, p, total_count } = this.state;
+    const { topic, author } = this.props;
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -66,8 +67,8 @@ class ArticlesAll extends Component {
           <S.NavContainer>
             <Topics />
             <ArticlesSorting
-              topic={this.props.topic}
-              author={this.props.author}
+              topic={topic}
+              author={author}
               getArticles={this.getArticles}
             />
           </S.NavContainer>

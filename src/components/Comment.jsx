@@ -12,13 +12,21 @@ class Comment extends Component {
   };
 
   removeComment = () => {
-    deleteComment(this.props.comment.comment_id).then(res => {
+    const { comment } = this.props;
+    deleteComment(comment.comment_id).then(res => {
       this.setState({ msg: "Comment deleted." });
     });
   };
 
   render() {
-    const { body, votes, created_at, author, comment_id } = this.props.comment;
+    const {
+      body,
+      votes,
+      created_at,
+      author,
+      comment_id,
+      userLoggedIn
+    } = this.props.comment;
     const { msg } = this.state;
 
     if (msg) {
@@ -36,7 +44,7 @@ class Comment extends Component {
           <p>{body}</p>
           <div>
             <Votes type={"comments"} id={comment_id} votes={votes} />
-            {this.props.userLoggedIn === author && (
+            {userLoggedIn === author && (
               <button className="deleteButton" onClick={this.removeComment}>
                 Delete
               </button>
