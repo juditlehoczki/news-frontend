@@ -41,7 +41,6 @@ class ArticlePost extends Component {
         });
       })
       .catch(error => {
-        console.log(error.response);
         this.setState({ error: error.response });
       });
   };

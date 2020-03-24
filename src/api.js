@@ -16,6 +16,10 @@ const postArticle = article => {
   return axios.post(`${baseUrl}/articles`, article);
 };
 
+const deleteArticleById = id => {
+  return axios.delete(`${baseUrl}/articles/${id}/`);
+};
+
 const fetchCommentsByArticleId = (article_id, p) => {
   return axios.get(`${baseUrl}/articles/${article_id}/comments`, { params: p });
 };
@@ -44,5 +48,6 @@ export {
   patchVote,
   postComment,
   deleteComment,
-  postArticle
+  postArticle,
+  deleteArticleById
 };

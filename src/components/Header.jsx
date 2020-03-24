@@ -24,7 +24,7 @@ const Header = props => {
           <button className="switch" onClick={switchTheme}>
             <img src={themeSwitchButton} alt="light switch" height="25" />
           </button>{" "}
-          {userLoggedIn && <Link to="/articles/new">✍︎</Link>}
+          {userLoggedIn && <Link to="/articles/new">✍ Write An Article</Link>}
         </span>
         <span>{moment().format("dddd Do MMMM YYYY")}</span>
         <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />

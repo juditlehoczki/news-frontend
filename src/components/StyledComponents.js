@@ -237,6 +237,13 @@ S.Article = styled.div`
       ${disabledButton}}
     }
   }
+  .deleteButton {
+    ${button}
+    &: hover {
+      background-color: ${props => props.theme.colours.red};
+      color: ${props => props.theme.colours.fg};
+    }
+  }
 `;
 
 S.ArticlePostContainer = styled.div`
