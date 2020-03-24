@@ -24,6 +24,9 @@ class Topics extends Component {
     const { topics } = this.state;
     return (
       <S.NavBarElement>
+        <Link to="/">
+          <button>All</button>
+        </Link>
         {topics.map(topic => {
           const slug = topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1);
           return (
