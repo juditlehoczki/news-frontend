@@ -122,7 +122,7 @@ S.SubHeader = styled.h2`
     font-size: 0.6em;
   }
   .switch {
-    background-color: #eedfcc;
+    background-color: #fbf8f4;
     border: 3px black solid;
     border-radius: 50%;
     padding: 5px 12px;
