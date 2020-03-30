@@ -29,6 +29,7 @@ To run this locally please follow the below steps:
 - [Axios](https://github.com/axios/axios)
 - [React](https://reactjs.org/)
 - [Reach Router](https://reach.tech/router)
+- [Moment](https://momentjs.com/)
 - [Styled-Components](https://www.styled-components.com/)
 
 ## Author
