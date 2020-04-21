@@ -16,17 +16,18 @@ import on from "./lightSwitchOn.png";
 
 const switches = {
   on,
-  off
+  off,
 };
 
 class App extends Component {
   state = {
+    // userLoggedIn: "",
     userLoggedIn: "jessjelly",
     theme: "light",
-    themeSwitchButton: switches.on
+    themeSwitchButton: switches.on,
   };
 
-  setUserLoggedIn = username => {
+  setUserLoggedIn = (username) => {
     this.setState({ userLoggedIn: username });
   };
 

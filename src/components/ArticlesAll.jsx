@@ -15,19 +15,19 @@ class ArticlesAll extends Component {
     isLoading: true,
     error: null,
     p: 1,
-    total_count: null
+    total_count: null,
   };
 
-  getArticles = queries => {
+  getArticles = (queries) => {
     fetchArticles(queries)
       .then(({ data }) => {
         this.setState({
           articles: data.articles,
           isLoading: false,
-          total_count: data.total_count
+          total_count: data.total_count,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({ error: error.response, isLoading: false });
       });
   };
@@ -49,8 +49,8 @@ class ArticlesAll extends Component {
     }
   }
 
-  changePage = num => {
-    this.setState(currentState => {
+  changePage = (num) => {
+    this.setState((currentState) => {
       return { p: currentState.p + num };
     });
   };
@@ -60,7 +60,9 @@ class ArticlesAll extends Component {
     const { topic, author } = this.props;
 
     if (isLoading) {
-      return <p>Loading...</p>;
+      return (
+        <p>Getting you all the articles, just bear with us for a moment...</p>
+      );
     } else {
       return (
         <div>
@@ -74,7 +76,7 @@ class ArticlesAll extends Component {
           </S.NavContainer>
           {error && <ErrorMsg status={error.status} msg={error.data.msg} />}
           <S.ArticlesContainer>
-            {articles.map(article => {
+            {articles.map((article) => {
               return (
                 <ArticlePreview key={article.article_id} article={article} />
               );

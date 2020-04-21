@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 class Login extends Component {
   state = {
-    username: ""
+    username: "",
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ username: e.target.value });
   };
 
-  logIn = e => {
+  logIn = (e) => {
     const { username } = this.state;
     const { setUserLoggedIn } = this.props;
     e.preventDefault();
@@ -35,14 +35,15 @@ class Login extends Component {
       return (
         <span>
           <form onSubmit={this.logIn}>
-            <label>
+            <label className="label">
+              Log in as 'jessjelly' to test this site.
+              <br />
               <input
                 type="text"
                 value={username}
                 onChange={this.handleChange}
               />
-              <br />
-              <button>Log In</button>
+              <button>Log Me In</button>
             </label>
           </form>
         </span>
